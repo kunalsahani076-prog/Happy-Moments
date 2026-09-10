@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Libre Caslon Text:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://static.figma.com/font/LibreCaslonText_wght__1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://static.figma.com/font/HankenGrotesk_wght__1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter:Semi_Bold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter:Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://static.figma.com/font/Inter_1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sora:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://static.figma.com/font/Sora_wght__1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sora:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.figma.com/font/Sora_wght__1') format('woff2');
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+#root {
+  width: 100%;
+}
