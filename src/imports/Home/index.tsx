@@ -36,7 +36,12 @@ type Frame17Props = {
 
 function Frame17({ className, property1 = "Default" }: Frame17Props) {
   return (
-    <div className={className || "relative w-[65.335px]"}>
+    <button
+      type="button"
+      aria-label="View our services"
+      onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+      className={`${className || "relative w-[65.335px]"} cursor-pointer border-0 bg-transparent p-0 text-left`}
+    >
       <div className="content-stretch flex flex-col items-start relative size-full">
         <div className="content-stretch flex flex-col items-start pb-[4px] relative shrink-0 w-full" data-name="Link">
           <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[16px] text-black tracking-[1.4px] whitespace-nowrap">
@@ -45,7 +50,7 @@ function Frame17({ className, property1 = "Default" }: Frame17Props) {
         </div>
         <div className={`bg-gradient-to-r from-[#f97316] h-[2px] relative shrink-0 to-[#f95316] ${property1 === "Variant2" ? "w-full" : "w-0"}`} />
       </div>
-    </div>
+    </button>
   );
 }
 type FaqProps = {
@@ -900,6 +905,185 @@ function Frame24() {
   );
 }
 
+function WhoWeAreSection() {
+  const highlights = [
+    ["10+ Years of Experience", "Creating and delivering premium events across India."],
+    ["100% Tailored Experiences", "No templates. Every event is uniquely designed around your vision and story."],
+    ["Pan-India Presence", "A dedicated team across cities, with trusted partners across India."],
+    ["100+ Happy Clients", "5-Star Rated Event Experiences Across India"],
+  ];
+
+  return (
+    <section className="bg-white px-[clamp(24px,5vw,80px)] py-[clamp(64px,8vw,112px)] relative shrink-0 w-full" aria-labelledby="who-we-are-title">
+      <div className="max-w-[1180px] mx-auto">
+        <div className="flex flex-col items-center text-center">
+          <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">WHO WE ARE</span>
+          <h2 id="who-we-are-title" className="font-['Libre_Caslon_Text:Bold',serif] font-bold mt-[18px] text-[clamp(28px,3.4vw,46px)] text-[#24211f] leading-[1.1]">
+            India&apos;s Most Trusted Name In <span className="text-[#f65a1e]">Event Industry</span>
+          </h2>
+        </div>
+        <div className="grid gap-[clamp(36px,6vw,80px)] grid-cols-1 items-center lg:grid-cols-[minmax(360px,1fr)_minmax(440px,1.05fr)] mt-[clamp(40px,5vw,68px)]">
+          <div className="aspect-square grid grid-cols-2 grid-rows-2 max-w-[520px] mx-auto relative w-full">
+            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection3} alt="Corporate event setup" />
+            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection} alt="Wedding decor by Happy Moments" />
+            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection2} alt="Exhibition experience" />
+            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection1} alt="Live event production" />
+            <div className="absolute bg-[#f97316] flex items-center justify-center left-1/2 p-[8px] rounded-full shadow-lg top-1/2 -translate-x-1/2 -translate-y-1/2 size-[clamp(90px,11vw,136px)]">
+              <img className="object-contain size-full" src={imgImageHappyMomentsLogo} alt="Happy Moments" />
+            </div>
+          </div>
+          <div className="font-['Hanken_Grotesk:Regular',sans-serif] text-[#4d5866] text-[clamp(13px,1.25vw,16px)] leading-[1.6]">
+            <p className="mb-[16px]"><strong>Happy Moments</strong> is a full-service <strong>event management company</strong> based in Delhi-NCR, with over a decade of experience in delivering exceptional events across India. We specialize in <strong>corporate events, luxury weddings, exhibitions, brand experiences, concerts,</strong> and <strong>private celebrations.</strong></p>
+            <p className="mb-[16px]">From corporate conferences and product launches to elegant weddings, exhibitions, and private celebrations, we deliver thoughtfully planned events that combine creativity, precision, and flawless execution.</p>
+            <p className="mb-[16px]">Whether it is an intimate celebration or a large-scale corporate event, Happy Moments creates personalized experiences that reflect our clients&apos; vision and leave a lasting impression.</p>
+            <p>The result is unforgettable experiences, lasting relationships, and moments that are cherished for years.</p>
+            <div className="grid gap-x-[32px] gap-y-[16px] grid-cols-1 sm:grid-cols-2 mt-[26px]">
+              {highlights.map(([title, description]) => <div key={title}><h3 className="font-['Hanken_Grotesk:Bold',sans-serif] font-bold text-[#202632] text-[14px] leading-[1.3]">{title}</h3><p className="leading-[1.4] mt-[3px] text-[12px]">{description}</p></div>)}
+            </div>
+            <a href="tel:+919717928676" className="bg-gradient-to-r from-[#f97316] inline-flex mt-[30px] no-underline px-[25px] py-[14px] rounded-full text-[#fffdf9] text-[12px] font-['Inter:Semi_Bold',sans-serif] font-semibold to-[#f95316]">Looking For Event Planner</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhatWeDoSection() {
+  const services = [
+    ["Corporate Events", imgHeroSection3, ["Conferences & Summits", "Annual Meetings", "Award Ceremonies", "Product Launches", "Dealer Meets", "Corporate Celebrations"]],
+    ["Wedding & Social", imgHeroSection, ["Luxury Weddings", "Destination Weddings", "Engagement Ceremonies", "Anniversary Celebrations", "Private Parties"]],
+    ["Exhibitions", imgHeroSection2, ["Exhibition Management", "Stall Design & Execution", "Brand Activations", "Promotional Events"]],
+    ["Live Events", imgHeroSection1, ["Concerts", "Stage Shows", "Artist Management", "Entertainment Events"]],
+    ["Complete Event", imgCarasoul, ["Event Concept & Planning", "Venue Management", "Décor & Production", "Vendor Coordination", "Logistics Management", "On-site Event Execution"]],
+  ];
+
+  return (
+    <section id="services" className="bg-white px-[clamp(24px,5vw,80px)] pb-[clamp(72px,9vw,120px)] pt-[clamp(10px,2vw,28px)] relative shrink-0 w-full" aria-labelledby="what-we-do-title">
+      <div className="max-w-[1180px] mx-auto">
+        <div className="flex flex-col items-center text-center">
+          <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">WHAT WE DO</span>
+          <h2 id="what-we-do-title" className="font-['Libre_Caslon_Text:Bold',serif] font-bold mt-[18px] text-[clamp(28px,3.4vw,46px)] text-[#24211f] leading-[1.1]">End-To-End Event <span className="text-[#f65a1e]">Expertise</span></h2>
+          <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.5] max-w-[560px] mt-[14px] text-[#625a55] text-[14px]">From concept to celebration, every detail is thoughtfully planned, beautifully designed, and flawlessly delivered.</p>
+        </div>
+        <div className="gap-[18px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[42px]">
+          {services.map(([title, image, items]) => (
+            <article className="bg-[#fff9ef] min-h-[385px] overflow-hidden rounded-[8px]" key={title as string}>
+              <div className="h-[185px] relative">
+                <img className="absolute h-full object-cover w-full" src={image as string} alt={title as string} />
+                <span className="absolute bg-[rgba(37,37,37,0.78)] bottom-[0] font-['Hanken_Grotesk:Regular',sans-serif] left-1/2 px-[16px] py-[7px] text-[12px] text-white -translate-x-1/2 whitespace-nowrap">{title as string}</span>
+              </div>
+              <ul className="font-['Hanken_Grotesk:Regular',sans-serif] list-none m-0 p-[22px] text-[#4d4b48] text-[13px]">
+                {(items as string[]).map(item => <li className="flex gap-[10px] items-center mb-[13px]" key={item}><span className="bg-[#555] flex h-[12px] items-center justify-center rounded-full text-[8px] text-white w-[12px]">✓</span>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+          <article className="bg-[#fff9ef] flex flex-col items-center justify-center min-h-[385px] px-[42px] rounded-[8px] text-center">
+            <div className="font-serif font-bold leading-none text-[#aaa5a0] text-[50px]">”</div>
+            <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.5] mt-[10px] text-[#625a55] text-[14px]">Every event is unique, and so is our approach. We create experiences that leave lasting memories.</p>
+            <div className="flex gap-[8px] items-center mt-[28px]"><img className="h-[34px] object-contain w-[34px]" src={imgImageHappyMomentsLogo} alt="" /><span className="font-['Sora:Bold',sans-serif] font-bold leading-[1.05] text-[#3b302a] text-[13px] text-left">Happy<br />Moments</span></div>
+            <span className="font-['Hanken_Grotesk:Regular',sans-serif] mt-[12px] text-[#625a55] text-[9px] tracking-[1px]">EVENTS THAT INSPIRE</span>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExceptionalServicesSection() {
+  const serviceImages = [imgHeroSection, imgHeroSection1, imgHeroSection2, imgHeroSection3, imgCarasoul];
+  const steps = [
+    ["01", "Consultation", "Discuss the vision, budget, key preferences, and priorities to create a clear foundation for bringing the event to life.", "from-[#d73a28] to-[#bc2e28]"],
+    ["02", "Design", "Develop the mood board, theme, and key visuals, supported by a clear, fully itemized quotation for complete cost transparency.", "from-[#245b6c] to-[#4b889b]"],
+    ["03", "Management", "Coordinate vendors, timelines, and every execution detail to ensure a seamless and well-managed event.", "from-[#f56d14] to-[#fc8c1c]"],
+    ["04", "Celebrate", "Seamlessly manage the event day from setup to guest departure, followed by a final debrief and feedback review.", "from-[#817f10] to-[#c5c32e]"],
+  ];
+
+  return (
+    <section className="bg-white px-[clamp(24px,5vw,80px)] pb-[clamp(78px,10vw,140px)] pt-[clamp(12px,3vw,40px)] relative shrink-0 w-full">
+      <div className="max-w-[1180px] mx-auto">
+        <div className="flex flex-col items-center text-center">
+          <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">EXCEPTIONAL SERVICES</span>
+          <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] max-w-[650px] mt-[15px] text-[#312b27] text-[14px]">As the Best Event Management Company in Delhi-NCR we provide exceptional services that your event needs.</p>
+        </div>
+        <div className="flex gap-[12px] h-[clamp(150px,18vw,245px)] items-center justify-center mt-[35px] overflow-hidden">
+          <div className="h-full max-w-[360px] overflow-hidden relative rounded-[24px] w-[40%]"><img className="h-full object-cover w-full" src={imgCarasoul} alt="Event photography" /><span className="absolute bg-[rgba(33,33,33,.75)] font-['Hanken_Grotesk:Regular',sans-serif] left-[10px] px-[9px] py-[4px] rounded-full text-[9px] text-white top-[10px]">Photography</span></div>
+          {serviceImages.map((image, index) => <div className="h-[88%] overflow-hidden rounded-[22px] w-[10%]" key={index}><img className="h-full object-cover w-full" src={image} alt="Happy Moments service" /></div>)}
+        </div>
+        <div className="flex flex-col items-center mt-[clamp(76px,11vw,150px)] text-center">
+          <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">HOW WE WORK</span>
+          <h2 className="font-['Libre_Caslon_Text:Bold',serif] font-bold mt-[18px] text-[clamp(28px,3.4vw,46px)] text-[#24211f] leading-[1.1]">From Vision To Unforgettable <span className="text-[#f65a1e]">Happy Moments</span></h2>
+          <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.5] max-w-[620px] mt-[14px] text-[#625a55] text-[14px]">Four seamless steps, thoughtfully managed from the first conversation to the final farewell.</p>
+        </div>
+        <div className="flex flex-col gap-[12px] max-w-[960px] mx-auto mt-[40px]">
+          {steps.map(([number, title, text, color], index) => <div className={`flex gap-[12px] items-stretch ${index % 2 ? "flex-row-reverse" : ""}`} key={number}>
+            <div className={`bg-gradient-to-br flex font-['Libre_Caslon_Text:Bold',serif] font-bold items-center justify-center min-h-[112px] rounded-[8px] shrink-0 text-[clamp(26px,3vw,42px)] text-white w-[clamp(86px,13vw,150px)] ${color}`}><span>{number}</span></div>
+            <div className="bg-[#f8f8f8] border border-[#e5e5e5] flex flex-col justify-center min-h-[112px] px-[clamp(18px,3vw,36px)] rounded-[8px] shadow-[2px_3px_3px_rgba(0,0,0,.25)] w-full"><h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold text-[#2b2928] text-[clamp(19px,2.1vw,27px)]">{title}</h3><p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] mt-[7px] text-[#625a55] text-[13px]">{text}</p></div>
+          </div>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyChooseUsSection() {
+  const reasons = [
+    ["PAN-INDIA PRESENCE", "Trusted teams in Delhi-NCR, Mumbai, Bengaluru, and Hyderabad, supported by reliable partners nationwide.", imgHeroSection3],
+    ["ONE DEDICATED PLANNER", "A single point of contact for clear communication and seamless coordination from start to finish.", imgHeroSection1],
+    ["TRANSPARENT PRICING", "Clear, itemized quotations with no hidden charges or unexpected costs. What you see is exactly what you pay.", imgHeroSection],
+    ["IN-HOUSE DESIGN STUDIO", "In-house décor, fabrication, and floral design for better quality, competitive pricing, and faster execution without relying heavily on third-party agencies.", imgHeroSection2],
+    ["EVENT-DAY SUPPORT 24/7", "A dedicated on-ground team and support staff ensure your event runs smoothly from setup to guest departure.", imgCarasoul],
+    ["YOU'RE IN GOOD HANDS", "Every event is smooth, thoughtfully designed around the tone, style, preferences, and budget, with dedicated support throughout the process.", imgImageHappyMomentsLogo],
+  ];
+  const faqs = [
+    ["Do you provide complete event management services?", "Yes. We handle everything from concept planning and vendor coordination to on-site execution, venue management, and wrap-up coordination."],
+    ["Do you provide corporate event management services?", "Yes. We plan and manage conferences, launches, award ceremonies, dealer meets, and other corporate experiences."],
+    ["Do you provide wedding event management services?", "Yes. Our team plans intimate and large-scale wedding celebrations, including décor, hospitality, entertainment, and logistics."],
+    ["Do you provide exhibition management services?", "Yes. We manage exhibition stalls, brand activations, fabrication, staffing, and on-ground coordination."],
+  ];
+
+  return (
+    <section className="bg-white px-[clamp(24px,5vw,80px)] pb-[clamp(78px,10vw,140px)] pt-[clamp(8px,2vw,28px)] relative shrink-0 w-full">
+      <div className="max-w-[980px] mx-auto">
+        <div className="flex flex-col items-center text-center">
+          <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">WHY CHOOSE US</span>
+          <h2 className="font-['Libre_Caslon_Text:Bold',serif] font-bold mt-[18px] text-[clamp(27px,3.3vw,44px)] text-[#24211f] leading-[1.1]">The Happy Moments <span className="text-[#f65a1e]">Difference</span></h2>
+          <p className="font-['Hanken_Grotesk:Regular',sans-serif] max-w-[620px] mt-[14px] text-[#625a55] text-[14px]">Discover what truly sets us apart from every other event company you&apos;ll consider.</p>
+        </div>
+        <div className="max-w-[680px] mx-auto mt-[45px] relative md:h-[545px]">
+          <div className="absolute aspect-square hidden md:-left-[28px] rounded-full shadow-[0_7px_14px_rgba(0,0,0,.32)] top-[174px] w-[190px] md:block">
+            <img className="absolute inset-0 object-cover rounded-full size-full" src={imgCarasoul} alt="Happy Moments event experience" />
+            <span className="absolute bg-black font-['Libre_Caslon_Text:Bold',serif] font-bold left-1/2 px-[15px] py-[8px] rounded-full text-[12px] text-white top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">WHY CHOOSE US</span>
+          </div>
+          {reasons.map(([title, description, image], index) => {
+            const positions = ["md:left-[55px] md:top-0", "md:left-[125px] md:top-[84px]", "md:left-[197px] md:top-[171px]", "md:left-[197px] md:top-[259px]", "md:left-[125px] md:top-[347px]", "md:left-[55px] md:top-[435px]"];
+            const borders = ["border-[#23a79c]", "border-[#e44b7f]", "border-[#b9c521]", "border-[#bcc527]", "border-[#77a6a0]", "border-[#9632a4]"];
+            return <article className={`flex gap-[14px] items-center mb-[22px] md:absolute md:mb-0 ${positions[index]}`} key={title}>
+              <img className={`border-[3px] h-[58px] object-cover rounded-full shrink-0 w-[58px] ${borders[index]}`} src={image} alt="" />
+              <div><h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold text-[#282421] text-[17px] leading-[1.1] whitespace-nowrap">{title}</h3><p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.42] mt-[5px] text-[#79716d] text-[12px] max-w-[440px]">{description}</p></div>
+            </article>;
+          })}
+          <div className="aspect-square mx-auto relative rounded-full shadow-[0_7px_14px_rgba(0,0,0,.32)] w-[170px] md:hidden">
+            <img className="absolute inset-0 object-cover rounded-full size-full" src={imgCarasoul} alt="Happy Moments event experience" />
+            <span className="absolute bg-black font-['Libre_Caslon_Text:Bold',serif] font-bold left-1/2 px-[15px] py-[8px] rounded-full text-[12px] text-white top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">WHY CHOOSE US</span>
+          </div>
+        </div>
+        <div className="gap-[20px] grid grid-cols-1 lg:grid-cols-[.95fr_1.15fr] mt-[clamp(58px,8vw,100px)]">
+          <div className="bg-gradient-to-br flex flex-col from-[#ffc566] items-center justify-center min-h-[250px] px-[32px] rounded-[9px] text-center to-[#ff6d1a]">
+            <span className="font-['Hanken_Grotesk:Regular',sans-serif] text-[#7b3d18] text-[10px]">Complete &nbsp; Planning, &nbsp; Execution, &nbsp; Support</span>
+            <h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold leading-[1.05] mt-[16px] text-[#26170f] text-[clamp(24px,2.8vw,36px)]">Let&apos;s Create Your Next<br />Unforgettable Happy Moments</h3>
+            <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] mt-[13px] text-[#6d371e] text-[12px]">From perfect planning to flawless execution, we&apos;re here to guide and celebrate every moment of your event journey.</p>
+            <a className="bg-[#f45d18] font-['Inter:Semi_Bold',sans-serif] mt-[20px] no-underline px-[17px] py-[10px] rounded-full text-[10px] text-white" href="tel:+919717928676">LOOKING FOR EVENT PLANNER</a>
+          </div>
+          <div className="flex flex-col justify-end">
+            <span className="bg-[#e7e7e7] ml-auto mb-[13px] px-[13px] py-[5px] rounded-full text-[9px] tracking-[.7px]">FREQUENTLY ASKED QUESTIONS</span>
+            <div className="space-y-[10px]">{faqs.map(([question, answer]) => <details className="bg-[#fffaf0] group rounded-[8px]" key={question}><summary className="cursor-pointer flex font-['Hanken_Grotesk:Bold',sans-serif] font-bold items-center justify-between list-none px-[17px] py-[15px] text-[#36302b] text-[12px]">{question}<span className="font-normal group-open:rotate-180 text-[16px] transition-transform">⌄</span></summary><p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] px-[17px] pb-[15px] text-[#625a55] text-[12px]">{answer}</p></details>)}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Container5() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Container">
@@ -1242,7 +1426,7 @@ function Container8() {
 
 function SectionOurService() {
   return (
-    <div className="content-stretch flex flex-col items-start p-[80px] relative shrink-0 w-full" data-name="Section - Our Service">
+    <div id="services" className="content-stretch flex flex-col items-start p-[80px] relative shrink-0 w-full scroll-mt-[72px]" data-name="Section - Our Service">
       <div className="absolute inset-0 opacity-6 overflow-hidden pointer-events-none">
         <img alt="" className="absolute h-[212.98%] left-[-1.02%] max-w-none top-[-6.41%] w-full" src={imgSectionOurService} />
       </div>
@@ -2744,50 +2928,33 @@ function HeapFormat() {
   );
 }
 
+function PartnerLogoSlot(props: any) {
+  return <div className="relative shrink-0 size-[231px]" data-name="Partner Logo">{props.children}</div>;
+}
+
+function PartnerLogoSet() {
+  return <>
+    <PartnerLogoSlot><RestreamFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><RemoteFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><ExpediaFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><ReplitFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><EbayFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><HopinFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><HerokuFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><HelpScoutFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><HellosignFormat /></PartnerLogoSlot>
+    <PartnerLogoSlot><HeapFormat /></PartnerLogoSlot>
+  </>;
+}
+
 function Frame2() {
   return (
-    <div className="content-stretch flex flex-col gap-[35px] items-center py-[120px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[35px] items-center overflow-hidden py-[120px] relative shrink-0 w-full">
       <Heading18 />
-      <div className="h-[231px] relative shrink-0 w-[1271px]" data-name="Producing Event For">
-        <div className="absolute left-0 size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <RestreamFormat />
-        </div>
-        <div className="absolute left-[254.11px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <RemoteFormat />
-        </div>
-        <div className="absolute left-[508.22px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <ExpediaFormat />
-        </div>
-        <div className="absolute left-[762.33px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <ReplitFormat />
-        </div>
-        <div className="absolute left-[1016.44px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <EbayFormat />
-        </div>
-        <div className="absolute left-[1270.55px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <HopinFormat />
-        </div>
-        <div className="absolute left-[1524.66px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <HerokuFormat />
-        </div>
-        <div className="absolute left-[1778.77px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <HelpScoutFormat />
-        </div>
-        <div className="absolute left-[2032.88px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <HellosignFormat />
-        </div>
-        <div className="absolute left-[2286.99px] size-[231.009px] top-0" data-name="Plagin Logo balance">
-          <div aria-hidden className="absolute border-0 border-[#f97316] border-solid inset-0 pointer-events-none" />
-          <HeapFormat />
+      <div className="h-[231px] relative shrink-0 w-full" data-name="Producing Event For">
+        <div className="partner-marquee flex h-full w-max">
+          <PartnerLogoSet />
+          <PartnerLogoSet />
         </div>
       </div>
     </div>
@@ -3433,11 +3600,11 @@ function Frame16() {
 
 function Link9() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[4px] relative shrink-0 w-full" data-name="Link">
+    <a href="/gallery" className="content-stretch flex flex-col items-start pb-[4px] relative shrink-0 w-full no-underline" data-name="Link">
       <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[16px] text-black tracking-[1.4px] whitespace-nowrap">
-        <p className="leading-[20px]">Portfolio</p>
+        <p className="leading-[20px]">Gallery</p>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -3523,11 +3690,10 @@ export default function Home() {
       </div>
       <Container />
       <Frame24 />
-      <SectionAboutUs />
-      <SectionOurService />
-      <HtmlBody />
-      <Frame8 />
-      <FeaturedSection />
+      <WhoWeAreSection />
+      <WhatWeDoSection />
+      <ExceptionalServicesSection />
+      <WhyChooseUsSection />
       <Frame2 />
       <SectionLetsPlanYourNextMoment />
       <Footer />
