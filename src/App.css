@@ -1,1 +1,208 @@
 /* Page styling is generated from the imported Happy Moments design. */
+
+/* Responsive adjustments for the imported desktop design.  These only alter
+   sizing and flow at smaller viewports; all existing content remains present. */
+/* The Home header intentionally mirrors the Gallery header. These local rules
+   keep it identical even when the Gallery page stylesheet is not loaded. */
+.home-gallery-nav {
+  width: 100% !important;
+  box-sizing: border-box;
+  height: clamp(42px, 5vw, 64px) !important;
+  padding: 0 clamp(24px, 6.25vw, 80px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: rgba(255, 255, 255, .9) !important;
+  backdrop-filter: blur(6px);
+  position: relative !important;
+  z-index: 3;
+}
+
+.home-gallery-nav .gallery-brand {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
+  color: #20160d !important;
+  font: 700 18px/22px "Sora:Bold", sans-serif !important;
+  text-decoration: none !important;
+}
+
+.home-gallery-nav .gallery-brand img {
+  width: 41px !important;
+  height: 41px !important;
+  object-fit: contain !important;
+}
+
+.home-gallery-nav nav { display: flex !important; gap: 32px !important; }
+
+.home-gallery-nav nav a {
+  color: #000 !important;
+  text-decoration: none !important;
+  font: 700 16px/20px "Hanken_Grotesk:Bold", Arial, sans-serif !important;
+  letter-spacing: 1.4px !important;
+}
+
+.home-gallery-nav .gallery-call {
+  padding: 10px 30px !important;
+  border-radius: 30px !important;
+  background: linear-gradient(90deg, #f97316, #f95316) !important;
+  color: #fffdf9 !important;
+  font: 600 13px/20px "Inter:Semi_Bold", sans-serif !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 640px) {
+  .home-gallery-nav { height: 56px !important; padding: 0 18px !important; }
+  .home-gallery-nav nav { gap: 13px !important; }
+  .home-gallery-nav nav a { font-size: 10px !important; letter-spacing: .2px !important; }
+  .home-gallery-nav .gallery-call { display: none !important; }
+  .home-gallery-nav .gallery-brand { font-size: 13px !important; line-height: 13px !important; }
+  .home-gallery-nav .gallery-brand img { width: 33px !important; height: 33px !important; }
+}
+
+@media (max-width: 900px) {
+  [data-name="Featured Section"] {
+    padding-left: clamp(24px, 6vw, 64px) !important;
+    padding-right: clamp(24px, 6vw, 64px) !important;
+  }
+
+  [data-name="Footer"] {
+    width: 100% !important;
+    height: auto !important;
+    padding-left: clamp(24px, 6vw, 64px) !important;
+    padding-right: clamp(24px, 6vw, 64px) !important;
+  }
+
+  [data-name="Footer"] > div > div {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  [data-name="Frame"] > p {
+    white-space: normal !important;
+  }
+
+  [data-name="Main - EnquiryFormContainer"] {
+    width: min(448px, 100%) !important;
+  }
+
+  [data-name="Left Column: Locations"],
+  [data-name="Right Column: Industries"] {
+    width: min(472px, 100%) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  [data-name="Carasoul"] {
+    min-height: 500px;
+  }
+
+  [data-name="Hero Section"] {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  [data-name="Carasoul"] > div > div {
+    gap: 0 !important;
+  }
+
+  [data-name="Container"] [class*="text-[clamp(38px"] {
+    font-size: clamp(34px, 10vw, 46px) !important;
+    letter-spacing: -.6px !important;
+  }
+
+  [data-name="Container"] [class*="text-[clamp(13px"] p {
+    display: inline;
+  }
+
+  [data-name="Container"] [class*="text-[clamp(13px"] {
+    font-size: 14px !important;
+  }
+
+  [data-name="Container"] [class*="text-[clamp(13px"] br {
+    display: none;
+  }
+
+  [data-name="Container"] [class*="text-[clamp(13px"] p:not(:last-child)::after {
+    content: " ";
+  }
+
+  [data-name="Frame 24"],
+  [data-name="Frame24"] {
+    gap: 18px !important;
+  }
+
+  /* Statistics stay visible and wrap cleanly on narrow phones. */
+  .bg-gradient-to-r.from-\[rgba\(217\,78\,31\,0\.81\)\] {
+    flex-wrap: wrap;
+    padding: 14px 18px !important;
+  }
+
+  .bg-gradient-to-r.from-\[rgba\(217\,78\,31\,0\.81\)\] > div {
+    width: calc(50% - 12px);
+  }
+
+  [data-name="Container"] [class*="w-[136px]"] {
+    width: 100% !important;
+  }
+
+  [data-name="Left Column: Locations"],
+  [data-name="Right Column: Industries"] {
+    padding-bottom: 0 !important;
+  }
+
+  [data-name="Featured Section"] {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  [data-name="Featured Section"] [class*="text-[48px]"] {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+  }
+
+  [data-name="Featured Section"] [class*="w-[728px]"] {
+    width: 100% !important;
+  }
+
+  [data-name="Featured Section"] [class*="text-[18px]"] {
+    font-size: 15px !important;
+    white-space: normal !important;
+  }
+
+  [data-name="Producing Event For"] {
+    height: 120px !important;
+  }
+
+  [data-name="Partner Logo"] {
+    transform: scale(.62);
+    transform-origin: center;
+  }
+
+  [data-name="Producing Event For"] .partner-marquee {
+    margin-left: -44px;
+  }
+
+  [data-name="Main - EnquiryFormContainer"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  [data-name="Footer"] {
+    padding-top: 38px !important;
+    padding-bottom: 30px !important;
+  }
+
+  [data-name="Footer"] > div > div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  [data-name="Carasoul"],
+  [data-name="Hero Section"] {
+    min-height: 470px !important;
+    height: 470px !important;
+  }
+}

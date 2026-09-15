@@ -2129,7 +2129,7 @@ function RightColumnIndustries() {
 
 function Frame8() {
   return (
-    <div className="content-stretch flex items-start justify-between max-w-[1280px] mx-auto px-[120px] py-[60px] relative shrink-0 w-full">
+    <div className="content-stretch flex items-start justify-between max-w-[1280px] mx-auto px-[120px] py-[60px] relative shrink-0 w-full max-[700px]:flex-col max-[700px]:gap-[40px] max-[700px]:px-[24px] max-[700px]:py-[48px]">
       <LeftColumnLocations />
       <RightColumnIndustries />
     </div>
@@ -3508,7 +3508,7 @@ function Frame15() {
     <div className="relative shrink-0 w-full">
       <div aria-hidden className="absolute border border-[#f97316] border-solid inset-0 pointer-events-none" />
       <div className="flex flex-row items-center size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-between px-[80px] py-[40px] relative size-full">
+        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-between px-[80px] py-[40px] relative size-full max-[700px]:flex-col max-[700px]:gap-[36px] max-[700px]:px-[20px] max-[700px]:py-[28px]">
           <Container35 />
           <MainEnquiryFormContainer />
         </div>
@@ -3662,14 +3662,18 @@ function ButtonCssTransform() {
 
 function Container55() {
   return (
-    <div className="h-[clamp(42px,5vw,64px)] relative shrink-0 w-full" data-name="Container">
-      <div className="flex flex-row items-center size-full">
-        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-between px-[clamp(24px,6.25vw,80px)] relative size-full">
-          <div className="scale-[0.72] origin-left"><Container56 /></div>
-          <div className="scale-[clamp(0.68,0.95vw,1)]"><Nav /></div>
-          <div className="scale-[clamp(0.65,0.92vw,1)] origin-right"><ButtonCssTransform /></div>
-        </div>
-      </div>
+    <div className="gallery-nav home-gallery-nav" data-name="Container">
+      <a className="gallery-brand" href="/" aria-label="Happy Moments home">
+        <img src={imgImageHappyMomentsLogo} alt="Happy Moments" />
+        <span>Happy<br />Moments</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="#services">Services</a>
+        <a href="/gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a className="gallery-call" href="tel:+919717928676">Call Us <span>→</span></a>
     </div>
   );
 }
