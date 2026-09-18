@@ -13,6 +13,7 @@ import imgCards2 from "./fc217c221e771b9769b028a1653cd59a883ad2bb.png";
 import imgCards3 from "./e31c109163ea3aea16ce888ce1b3e5169267c16e.png";
 import imgLogoMarkSmall from "./c4451b3f63ecff4a3efbc8b47afad2d9e3866ef9.png";
 import imgImageHappyMomentsLogo from "./f5827fc53beb6a882da4c0b971bc828d60f71ba0.png";
+import { useEffect, useRef, useState } from "react";
 type LinkProps = {
   className?: string;
   property1?: "Default" | "Variant2";
@@ -790,11 +791,11 @@ function HeroSection3() {
 function Heading() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 1">
-      <div className="[word-break:break-word] flex flex-col font-['Libre_Caslon_Text:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[clamp(38px,5vw,64px)] text-white tracking-[-1.28px] w-full">
-        <p className="leading-[1.12] mb-0">Every occasion deserves</p>
-        <p>
-          <span className="leading-[1.12]">{`its `}</span>
-          <span className="bg-clip-text bg-gradient-to-r from-[#f97316] leading-[1.12] text-[transparent] to-[#f95316]">happy moment</span>
+      <div className="[word-break:break-word] flex flex-col font-['Libre_Caslon_Text:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[clamp(32px,5vw,64px)] text-white tracking-[-1.28px] w-full">
+        <p className="leading-[1.12] mb-0 whitespace-nowrap">Every Occasion Deserves</p>
+        <p className="whitespace-nowrap">
+          <span className="leading-[1.12]">{`Its `}</span>
+          <span className="bg-clip-text bg-gradient-to-r from-[#f97316] leading-[1.12] text-[transparent] to-[#f95316]">Happy Moment</span>
         </p>
       </div>
     </div>
@@ -805,9 +806,10 @@ function Container1() {
   return (
     <div className="content-stretch flex flex-col items-start max-w-[650px] pb-[16px] relative shrink-0 w-[min(650px,84vw)]" data-name="Container">
       <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:Regular',sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[#fbe3dd] text-[clamp(13px,1.56vw,20px)]">
-        <p className="leading-[1.6] mb-0">Happy Moments is a premium event management company in Delhi-NCR with over 10</p>
-        <p className="leading-[1.6] mb-0">years of experience in creating memorable weddings, corporate events, exhibitions,</p>
-        <p className="leading-[1.6]">concerts, and special celebrations across India.</p>
+        <p className="leading-[1.6] mb-0">10+ years of creating unforgettable moments,</p>
+        <p className="leading-[1.6] mb-0">from luxury weddings and corporate events to</p>
+        <p className="leading-[1.6] mb-0">exhibitions, concerts, and celebrations across</p>
+        <p className="leading-[1.6]">India.</p>
       </div>
     </div>
   );
@@ -836,7 +838,7 @@ function Frame25() {
 
 function Container() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[16px] items-start left-[clamp(32px,5.15vw,66px)] top-[clamp(118px,16.4vw,210px)] w-[min(714px,84vw)]" data-name="Container">
+    <div className="absolute content-stretch flex flex-col gap-[16px] items-start left-[clamp(32px,5.15vw,66px)] top-[clamp(96px,12.8vw,164px)] w-[min(714px,84vw)]" data-name="Container">
       <Heading />
       <Container1 />
       <Frame25 />
@@ -844,11 +846,54 @@ function Container() {
   );
 }
 
+function AnimatedCounter({ target }: { target: number }) {
+  const [count, setCount] = useState(0);
+  const counterRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const element = counterRef.current;
+    if (!element) return;
+
+    let animationFrame = 0;
+    const startCounter = () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setCount(target);
+        return;
+      }
+
+      const startTime = performance.now();
+      const duration = 1600;
+      const animate = (time: number) => {
+        const progress = Math.min((time - startTime) / duration, 1);
+        // Smooth ease-out keeps the final value easy to read.
+        setCount(Math.round(target * (1 - Math.pow(1 - progress, 3))));
+        if (progress < 1) animationFrame = requestAnimationFrame(animate);
+      };
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        startCounter();
+        observer.disconnect();
+      }
+    }, { threshold: 0.35 });
+
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [target]);
+
+  return <span ref={counterRef}>{count.toLocaleString("en-IN")}+</span>;
+}
+
 function Frame20() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col font-bold gap-[10px] items-center leading-[0] relative shrink-0 text-white w-[136px]">
       <div className="flex flex-col font-['Libre_Caslon_Text:Bold',sans-serif] justify-center relative shrink-0 text-[clamp(28px,3.75vw,48px)] text-center w-full">
-        <p className="leading-[1.15]">100+</p>
+        <p className="leading-[1.15]"><AnimatedCounter target={100} /></p>
       </div>
       <div className="flex flex-col font-['Hanken_Grotesk:Bold',sans-serif] justify-center relative shrink-0 text-[clamp(9px,1.25vw,16px)] w-full">
         <p className="leading-[1.5]">EVENT DELIVERED</p>
@@ -861,7 +906,7 @@ function Frame21() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col font-bold gap-[10px] items-center leading-[0] relative shrink-0 text-white whitespace-nowrap">
       <div className="flex flex-col font-['Libre_Caslon_Text:Bold',sans-serif] justify-center relative shrink-0 text-[clamp(28px,3.75vw,48px)] text-center">
-        <p className="leading-[1.15]">10,000+</p>
+        <p className="leading-[1.15]"><AnimatedCounter target={10000} /></p>
       </div>
       <div className="flex flex-col font-['Hanken_Grotesk:Bold',sans-serif] justify-center relative shrink-0 text-[clamp(9px,1.25vw,16px)]">
         <p className="leading-[1.5]">GUESTS HOSTED</p>
@@ -874,7 +919,7 @@ function Frame22() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col font-bold gap-[10px] items-center leading-[0] relative shrink-0 text-white w-[136px]">
       <div className="flex flex-col font-['Libre_Caslon_Text:Bold',sans-serif] justify-center min-w-full relative shrink-0 text-[clamp(28px,3.75vw,48px)] text-center w-[min-content]">
-        <p className="leading-[1.15]">50+</p>
+        <p className="leading-[1.15]"><AnimatedCounter target={50} /></p>
       </div>
       <div className="flex flex-col font-['Hanken_Grotesk:Bold',sans-serif] justify-center relative shrink-0 text-[clamp(9px,1.25vw,16px)] whitespace-nowrap">
         <p className="leading-[1.5]">VENDER PARTNERS</p>

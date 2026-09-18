@@ -10,14 +10,16 @@ import decorImage from './imports/Home/c50cfccb20b89733ab415c7a8e7ed264f217647b.
 import corporateImage from './imports/Home/839aa8e7a83b9048f683ff1e239efe86dd0a0504.png'
 
 const moments = [
-  ['Corporate Events', stageImage],
-  ['Wedding Celebrations', weddingImage],
-  ['Exhibitions', exhibitionImage],
-  ['Live Experiences', concertImage],
-  ['Elegant Decor', decorImage],
-  ['Grand Celebrations', celebrationImage],
-  ['Business Events', corporateImage],
-  ['Unforgettable Moments', heroImage],
+  ['AutoExpo 2023', stageImage],
+  ['Deco India 2023', exhibitionImage],
+  ['IITF 2024', corporateImage],
+  ['Rising Rajasthan 2024', concertImage],
+  ['Rising Rajasthan 2024', weddingImage],
+  ['India Stonemart 2024', decorImage],
+  ['HDFC Town Hall', celebrationImage],
+  ['Stona 2025 Bangalore', exhibitionImage],
+  ['Aadhar Housing R&R', stageImage],
+  ['V1 Sirsa Cup', heroImage],
 ]
 
 export default function GalleryPage() {
@@ -52,8 +54,8 @@ export default function GalleryPage() {
           <h2>Discover Our <em>Journey</em></h2>
           <p className="gallery-intro">A glimpse into the celebrations, ideas, and experiences we have brought to life.</p>
           <div className="gallery-grid">
-            {moments.map(([title, image]) => (
-              <article className="gallery-card" key={title}>
+            {moments.map(([title, image], index) => (
+              <article className="gallery-card" key={`${title}-${index}`}>
                 <img src={image} alt={title} />
                 <h3>{title}</h3>
               </article>
