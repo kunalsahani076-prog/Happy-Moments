@@ -3317,10 +3317,16 @@ function Container48() {
 
 function LinkWhatsAppCta() {
   return (
-    <div className="bg-[#13281c] content-stretch flex flex-col items-start p-[17px] relative rounded-[8px] shrink-0 w-full" data-name="Link - WhatsApp CTA">
+    <a
+      className="bg-[#13281c] content-stretch flex flex-col items-start p-[17px] relative rounded-[8px] shrink-0 w-full no-underline"
+      data-name="Link - WhatsApp CTA"
+      href="https://wa.me/919717928676"
+      rel="noreferrer"
+      target="_blank"
+    >
       <div aria-hidden className="absolute border border-[#1c4a2c] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <Container48 />
-    </div>
+    </a>
   );
 }
 
@@ -3528,22 +3534,49 @@ function MainEnquiryForm() {
 }
 
 function MainEnquiryFormContainer() {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+
+  const updateField = (field: keyof typeof formData, value: string) => {
+    setFormData((current) => ({ ...current, [field]: value }));
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const message = [
+      "Hello Happy Moments, I would like to enquire about an event.",
+      `Name: ${formData.name}`,
+      formData.email && `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Requirements: ${formData.message}`,
+    ].filter(Boolean).join("\n");
+    window.open(`https://wa.me/919717928676?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="flex flex-row items-center self-stretch">
-      <div className="content-stretch flex flex-col gap-[12px] h-full items-start max-w-[448px] pb-[33px] pt-[13px] px-[33px] relative rounded-[4px] shrink-0 w-[448px]" data-name="Main - EnquiryFormContainer">
+      <form className="reference-enquiry-form content-stretch flex flex-col items-start max-w-[448px] relative shrink-0 w-[448px]" data-name="Main - EnquiryFormContainer" onSubmit={handleSubmit}>
         <div aria-hidden className="absolute border border-[#565656] border-solid inset-0 pointer-events-none rounded-[4px]" />
-        <div className="absolute bg-[rgba(255,255,255,0)] inset-[0_0_-0.22px_0] rounded-[8px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]" data-name="Main - EnquiryFormContainer:shadow" />
-        <Frame14 />
-        <MainEnquiryForm />
-        <div className="bg-gradient-to-r from-[#f97316] relative rounded-[30px] shrink-0 to-[#f95316] w-full" data-name="P-BUTTION">
-          <div aria-hidden className="absolute border border-[#f97316] border-solid inset-0 pointer-events-none rounded-[30px]" />
-          <div className="flex flex-row items-center justify-center size-full">
-            <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center px-[26px] py-[15px] relative size-full">
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[21.7px] not-italic relative shrink-0 text-[#fffdf9] text-[14px] whitespace-nowrap">Send Message</p>
-            </div>
-          </div>
+        <div aria-hidden className="absolute bg-[rgba(255,255,255,0)] inset-[0_0_-0.22px_0] pointer-events-none rounded-[8px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]" data-name="Main - EnquiryFormContainer:shadow" />
+        <LinkWhatsAppCta />
+        <div className="reference-field">
+          <label className="sr-only" htmlFor="enquiry-name">Name</label>
+          <input id="enquiry-name" name="name" onChange={(event) => updateField("name", event.target.value)} placeholder="Enter your name" required type="text" value={formData.name} />
         </div>
-      </div>
+        <div className="reference-email-field">
+          <span>(optional)</span>
+          <label className="sr-only" htmlFor="enquiry-email">Email</label>
+          <input id="enquiry-email" name="email" onChange={(event) => updateField("email", event.target.value)} placeholder="you@company.com" type="email" value={formData.email} />
+        </div>
+        <div className="reference-field">
+          <label className="sr-only" htmlFor="enquiry-phone">Phone number</label>
+          <input id="enquiry-phone" name="phone" onChange={(event) => updateField("phone", event.target.value)} placeholder="Enter your phone number" required type="tel" value={formData.phone} />
+        </div>
+        <div className="reference-field reference-message-field">
+          <label className="sr-only" htmlFor="enquiry-message">Requirements</label>
+          <textarea id="enquiry-message" name="message" onChange={(event) => updateField("message", event.target.value)} placeholder="Tell us about your requirements..." required value={formData.message} />
+        </div>
+        <button className="reference-send-button" type="submit">Send Message</button>
+      </form>
     </div>
   );
 }

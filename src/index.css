@@ -83,6 +83,109 @@ body {
   animation-play-state: paused;
 }
 
+/* Functional enquiry form, matched to the supplied reference. */
+.reference-enquiry-form {
+  box-sizing: border-box;
+  gap: 44px;
+  padding: 84px 40px 60px;
+  background: #fff;
+}
+
+.reference-enquiry-form [data-name="Link - WhatsApp CTA"] {
+  box-sizing: border-box;
+  min-height: 82px;
+  padding: 22px !important;
+  border-radius: 8px;
+}
+
+.reference-enquiry-form [data-name="Link - WhatsApp CTA"] > div:last-child > div {
+  gap: 22px !important;
+}
+
+.reference-enquiry-form [data-name="Link - WhatsApp CTA"] p {
+  font-size: 18px !important;
+  line-height: 24px !important;
+}
+
+.reference-field,
+.reference-email-field {
+  width: 100%;
+}
+
+.reference-field input,
+.reference-email-field input,
+.reference-field textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 1px solid #565656;
+  border-radius: 7px;
+  background: #fff;
+  color: #20160d;
+  font: 400 16px/24px "Inter:Regular", Arial, sans-serif;
+  outline: none;
+}
+
+.reference-field input,
+.reference-email-field input {
+  height: 58px;
+  padding: 16px 20px;
+}
+
+.reference-field textarea {
+  height: 159px;
+  padding: 16px 20px;
+  resize: vertical;
+}
+
+.reference-field input::placeholder,
+.reference-email-field input::placeholder,
+.reference-field textarea::placeholder {
+  color: #a1a1aa;
+  opacity: 1;
+}
+
+.reference-field input:focus,
+.reference-email-field input:focus,
+.reference-field textarea:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, .14);
+}
+
+.reference-email-field {
+  margin-top: -28px;
+}
+
+.reference-email-field > span {
+  display: block;
+  margin: 0 0 11px 49px;
+  color: #a1a1aa;
+  font: 400 16px/20px "Inter:Regular", Arial, sans-serif;
+}
+
+.reference-message-field {
+  margin-top: 1px;
+}
+
+.reference-send-button {
+  width: 100%;
+  min-height: 62px;
+  margin-top: -28px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f97316, #f95316);
+  color: #fffdf9;
+  cursor: pointer;
+  font: 600 16px/22px "Inter:Semi_Bold", Arial, sans-serif;
+}
+
+.reference-send-button:hover { filter: brightness(1.04); }
+.reference-send-button:focus-visible { outline: 3px solid rgba(249, 115, 22, .35); outline-offset: 3px; }
+
+@media (max-width: 700px) {
+  .reference-enquiry-form { gap: 36px; padding: 58px 20px 42px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .partner-marquee { animation: none; }
 }
