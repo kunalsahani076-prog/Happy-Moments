@@ -1035,13 +1035,29 @@ function WhatWeDoSection() {
 }
 
 function ExceptionalServicesSection() {
-  const serviceImages = [imgHeroSection, imgHeroSection1, imgHeroSection2, imgHeroSection3, imgCarasoul];
+  // Keep every existing service image in the carousel. The active image is shown
+  // wide and the remaining images stay visible as the narrow preview cards.
+  const serviceImages = [imgCarasoul, imgHeroSection, imgHeroSection1, imgHeroSection2, imgHeroSection3, imgCarasoul];
+  const [activeServiceImage, setActiveServiceImage] = useState(0);
   const steps = [
     ["01", "Consultation", "Discuss the vision, budget, key preferences, and priorities to create a clear foundation for bringing the event to life.", "from-[#d73a28] to-[#bc2e28]"],
     ["02", "Design", "Develop the mood board, theme, and key visuals, supported by a clear, fully itemized quotation for complete cost transparency.", "from-[#245b6c] to-[#4b889b]"],
     ["03", "Management", "Coordinate vendors, timelines, and every execution detail to ensure a seamless and well-managed event.", "from-[#f56d14] to-[#fc8c1c]"],
     ["04", "Celebrate", "Seamlessly manage the event day from setup to guest departure, followed by a final debrief and feedback review.", "from-[#817f10] to-[#c5c32e]"],
   ];
+
+  useEffect(() => {
+    const carouselTimer = window.setInterval(() => {
+      setActiveServiceImage((current) => (current + 1) % serviceImages.length);
+    }, 1000);
+
+    return () => window.clearInterval(carouselTimer);
+  }, [serviceImages.length]);
+
+  const visibleServiceImages = Array.from({ length: serviceImages.length - 1 }, (_, offset) => {
+    const index = (activeServiceImage + offset + 1) % serviceImages.length;
+    return { image: serviceImages[index], index };
+  });
 
   return (
     <section className="bg-white px-[clamp(24px,5vw,80px)] pb-[clamp(78px,10vw,140px)] pt-[clamp(12px,3vw,40px)] relative shrink-0 w-full">
@@ -1051,8 +1067,21 @@ function ExceptionalServicesSection() {
           <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] max-w-[650px] mt-[15px] text-[#312b27] text-[14px]">As the Best Event Management Company in Delhi-NCR we provide exceptional services that your event needs.</p>
         </div>
         <div className="flex gap-[12px] h-[clamp(150px,18vw,245px)] items-center justify-center mt-[35px] overflow-hidden">
-          <div className="h-full max-w-[360px] overflow-hidden relative rounded-[24px] w-[40%]"><img className="h-full object-cover w-full" src={imgCarasoul} alt="Event photography" /><span className="absolute bg-[rgba(33,33,33,.75)] font-['Hanken_Grotesk:Regular',sans-serif] left-[10px] px-[9px] py-[4px] rounded-full text-[9px] text-white top-[10px]">Photography</span></div>
-          {serviceImages.map((image, index) => <div className="h-[88%] overflow-hidden rounded-[22px] w-[10%]" key={index}><img className="h-full object-cover w-full" src={image} alt="Happy Moments service" /></div>)}
+          <div className="h-full max-w-[480px] overflow-hidden relative rounded-[24px] w-[40%]">
+            <img className="h-full object-cover w-full" src={serviceImages[activeServiceImage]} alt="Event photography" />
+            <span className="absolute bg-[rgba(33,33,33,.75)] font-['Hanken_Grotesk:Regular',sans-serif] left-[10px] px-[9px] py-[4px] rounded-full text-[9px] text-white top-[10px]">Photography</span>
+          </div>
+          {visibleServiceImages.map(({ image, index }) => (
+            <button
+              type="button"
+              aria-label={`Show service image ${index + 1}`}
+              className="border-0 bg-transparent cursor-pointer h-[88%] overflow-hidden p-0 rounded-[22px] shrink-0 w-[10%]"
+              key={index}
+              onClick={() => setActiveServiceImage(index)}
+            >
+              <img className="h-full object-cover w-full" src={image} alt="Happy Moments service" />
+            </button>
+          ))}
         </div>
         <div className="flex flex-col items-center mt-[clamp(76px,11vw,150px)] text-center">
           <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">HOW WE WORK</span>
