@@ -8,6 +8,11 @@ import celebrationImage from './imports/Home/e31c109163ea3aea16ce888ce1b3e516926
 import concertImage from './imports/Home/b3ee254810031e9b3c043e5cbae2fec0848b43ea.png'
 import decorImage from './imports/Home/c50cfccb20b89733ab415c7a8e7ed264f217647b.png'
 import corporateImage from './imports/Home/839aa8e7a83b9048f683ff1e239efe86dd0a0504.png'
+import galleryHero1 from './assets/Gallery-hero/Hero 1.png'
+import galleryHero2 from './assets/Gallery-hero/Hero 2.png'
+import galleryHero3 from './assets/Gallery-hero/Hero 3.png'
+import galleryHero4 from './assets/Gallery-hero/Hero 4.png'
+import { useEffect, useState } from 'react'
 
 const moments = [
   ['AutoExpo 2023', stageImage],
@@ -21,6 +26,33 @@ const moments = [
   ['Aadhar Housing R&R', stageImage],
   ['V1 Sirsa Cup', heroImage],
 ]
+
+function GalleryHeroCarousel() {
+  const slides = [galleryHero1, galleryHero2, galleryHero3, galleryHero4]
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  useEffect(() => {
+    const sliderTimer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length)
+    }, 5000)
+
+    return () => window.clearInterval(sliderTimer)
+  }, [slides.length])
+
+  return (
+    <section className="gallery-hero" aria-label="Happy Moments gallery highlights">
+      {slides.map((image, index) => <img key={image} className={`gallery-hero-slide ${index === activeSlide ? 'is-active' : ''}`} src={image} alt={`Happy Moments gallery highlight ${index + 1}`} aria-hidden={index !== activeSlide} />)}
+      <div className="gallery-hero-shade" />
+      <div className="gallery-hero-copy">
+        <p>HAPPY MOMENTS</p>
+        <h1>Stories worth<br />celebrating.</h1>
+      </div>
+      <div className="gallery-hero-dots">
+        {slides.map((_, index) => <button key={index} type="button" aria-label={`Show gallery slide ${index + 1}`} aria-current={index === activeSlide} className={index === activeSlide ? 'is-active' : ''} onClick={() => setActiveSlide(index)} />)}
+      </div>
+    </section>
+  )
+}
 
 export default function GalleryPage() {
   return (
@@ -40,14 +72,7 @@ export default function GalleryPage() {
       </header>
 
       <main>
-        <section className="gallery-hero">
-          <img src={heroImage} alt="A beautifully decorated Happy Moments wedding" />
-          <div className="gallery-hero-shade" />
-          <div className="gallery-hero-copy">
-            <p>HAPPY MOMENTS</p>
-            <h1>Stories worth<br />celebrating.</h1>
-          </div>
-        </section>
+        <GalleryHeroCarousel />
 
         <section className="gallery-content">
           <span className="gallery-eyebrow">GALLERY</span>
@@ -64,16 +89,18 @@ export default function GalleryPage() {
         </section>
       </main>
 
-      <footer className="gallery-footer">
-        <div className="footer-panel">
-          <section>
-            <div className="footer-brand"><img src={logo} alt="" /><strong>Happy<br />Moments</strong></div>
-            <p>Full-service event management for celebrations, weddings, exhibitions and exceptional corporate experiences.</p>
+      <footer className="gallery-footer site-footer">
+        <div className="site-footer-panel">
+          <section className="site-footer-about">
+            <a className="site-footer-brand" href="/" aria-label="Happy Moments home"><img src={logo} alt="Happy Moments" /><span>Happy<br />Moments</span></a>
+            <p>Full service event management from Delhi-NCR 10+ years of event industry experience behind 100+ events: corporate, weddings, Exhibitions, Special Occasions across 25+ cities in India.</p>
+            <nav className="site-footer-social" aria-label="Social media"><a href="/#contact" aria-label="Instagram">◎</a><a href="/#contact" aria-label="Facebook">f</a><a href="/#contact" aria-label="Twitter">♥</a><a href="/#contact" aria-label="YouTube">▶</a><a href="/#contact" aria-label="LinkedIn">in</a></nav>
           </section>
-          <section><h3>Services</h3><p>Corporate</p><p>Weddings</p><p>Exhibitions</p><p>Special Occasions</p></section>
-          <section><h3>Contact</h3><p>Get in touch</p><p>+91 9717928676</p><p>+91 9996821111</p><p>sales@happy-moments.co.in</p></section>
+          <section className="site-footer-links"><h3>SERVICES</h3><a href="/#services">Corporate.</a><a href="/#services">Wedding.</a><a href="/#services">Exhibitions.</a><a href="/#services">Special Occasions</a></section>
+          <section className="site-footer-links"><h3>CONTACT</h3><a href="/#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="tel:+919968211112">+91 9968211112</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
         </div>
         <div className="footer-bottom">© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</div>
+        <div className="site-footer-bottom"><span className="site-footer-mini-brand"><img src={logo} alt="" />Happy Moments</span><span>Managed By D&apos;miraki</span><span>© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</span></div>
       </footer>
     </div>
   )

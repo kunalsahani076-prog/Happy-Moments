@@ -9,10 +9,15 @@
 .gallery-call span { padding-left: 5px; }
 .gallery-hero { height: min(54vw, 590px); min-height: 360px; position: relative; overflow: hidden; }
 .gallery-hero > img { width: 100%; height: 100%; object-fit: cover; object-position: center 54%; }
+.gallery-hero > .gallery-hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+.gallery-hero > .gallery-hero-slide.is-active { opacity: 1; }
 .gallery-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,18,23,.7), rgba(4,18,23,.1) 72%), rgba(1,20,26,.2); }
 .gallery-hero-copy { position: absolute; left: clamp(28px, 10vw, 150px); top: 50%; transform: translateY(-50%); color: #fff; }
 .gallery-hero-copy p { letter-spacing: 3px; font-size: 11px; font-weight: 700; margin: 0 0 12px; }
 .gallery-hero-copy h1 { margin: 0; font: 700 clamp(40px, 5.4vw, 78px)/.98 "Libre Caslon Text:Bold", Georgia, serif; }
+.gallery-hero-dots { position: absolute; z-index: 1; left: 0; right: 0; bottom: 24px; display: flex; justify-content: center; gap: 10px; }
+.gallery-hero-dots button { width: 10px; height: 10px; padding: 0; border: 1px solid #fff; border-radius: 50%; background: rgba(255,255,255,.45); cursor: pointer; transition: transform .2s ease, background .2s ease; }
+.gallery-hero-dots button.is-active { background: #fff; transform: scale(1.25); }
 .gallery-content { max-width: 1180px; margin: 0 auto; padding: 80px 28px 100px; text-align: center; }
 .gallery-eyebrow { display: inline-block; padding: 5px 12px; border-radius: 99px; background: #e9e9e9; color: #646464; font-size: 10px; font-weight: 700; letter-spacing: .4px; }
 .gallery-content h2 { margin: 16px 0 8px; font: 700 clamp(30px, 3.4vw, 48px)/1.1 "Libre Caslon Text:Bold", Georgia, serif; }
@@ -23,7 +28,7 @@
 .gallery-card img { display: block; width: 100%; height: clamp(190px, 25vw, 285px); object-fit: cover; transition: transform .35s ease; }
 .gallery-card:hover img { transform: scale(1.035); }
 .gallery-card h3 { margin: 0; padding: 13px 15px 15px; font: 700 14px/1.2 "Hanken Grotesk:Bold", Arial, sans-serif; }
-.gallery-footer { padding: 62px clamp(24px, 7vw, 96px) 32px; color: #fff; background: linear-gradient(rgba(8,6,4,.85), rgba(8,6,4,.94)), url('./imports/Home/b3ee254810031e9b3c043e5cbae2fec0848b43ea.png') center/cover; }
+.gallery-footer:not(.site-footer) { padding: 62px clamp(24px, 7vw, 96px) 32px; color: #fff; background: linear-gradient(rgba(8,6,4,.85), rgba(8,6,4,.94)), url('./imports/Home/b3ee254810031e9b3c043e5cbae2fec0848b43ea.png') center/cover; }
 .footer-panel { max-width: 1080px; margin: auto; padding: 38px; border: 1px solid rgba(255,255,255,.24); border-radius: 12px; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; background: rgba(12,9,6,.4); backdrop-filter: blur(7px); }
 .footer-brand img { width: 44px; height: 44px; object-fit: contain; }.footer-panel p { color: #d2cbc7; font-size: 13px; line-height: 1.55; margin: 8px 0; }.footer-panel section:first-child p { max-width: 270px; margin-top: 22px; }.footer-panel h3 { margin: 0 0 17px; color: #fff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }.footer-bottom { max-width: 1080px; padding-top: 26px; margin: auto; color: #a49b96; font-size: 10px; letter-spacing: .7px; text-align: right; }
-@media (max-width: 640px) { .gallery-nav { height: 56px; padding: 0 18px; }.gallery-nav nav { gap: 13px; }.gallery-nav nav a { font-size: 10px; letter-spacing: .2px; }.gallery-call { display: none; }.gallery-brand img { width: 33px; height: 33px; }.gallery-brand { font-size: 13px; line-height: 13px; }.gallery-hero { min-height: 310px; }.gallery-content { padding: 58px 18px 70px; }.gallery-grid { grid-template-columns: 1fr; gap: 17px; }.gallery-card img { height: 220px; }.footer-panel { grid-template-columns: 1fr; gap: 25px; padding: 28px; }.footer-bottom { text-align: left; }.gallery-footer { padding: 44px 18px 24px; } }
+@media (max-width: 640px) { .gallery-nav { height: 56px; padding: 0 18px; }.gallery-nav nav { gap: 13px; }.gallery-nav nav a { font-size: 10px; letter-spacing: .2px; }.gallery-call { display: none; }.gallery-brand img { width: 33px; height: 33px; }.gallery-brand { font-size: 13px; line-height: 13px; }.gallery-hero { min-height: 310px; }.gallery-content { padding: 58px 18px 70px; }.gallery-grid { grid-template-columns: 1fr; gap: 17px; }.gallery-card img { height: 220px; }.footer-panel { grid-template-columns: 1fr; gap: 25px; padding: 28px; }.footer-bottom { text-align: left; }.gallery-footer:not(.site-footer) { padding: 44px 18px 24px; } }

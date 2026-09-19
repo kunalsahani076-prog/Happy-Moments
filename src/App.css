@@ -37,18 +37,145 @@
 
 .home-gallery-nav nav a {
   color: #000 !important;
+  position: relative;
   text-decoration: none !important;
   font: 700 16px/20px "Hanken_Grotesk:Bold", Arial, sans-serif !important;
   letter-spacing: 1.4px !important;
+}
+
+.home-gallery-nav nav a::after {
+  background: #f65a1e;
+  bottom: -8px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+  width: 100%;
+}
+
+.home-gallery-nav nav a:hover::after,
+.home-gallery-nav nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.home-gallery-nav nav a:focus-visible {
+  outline: 2px solid #f65a1e;
+  outline-offset: 5px;
 }
 
 .home-gallery-nav .gallery-call {
   padding: 10px 30px !important;
   border-radius: 30px !important;
   background: linear-gradient(90deg, #f97316, #f95316) !important;
+  border: 1px solid transparent;
   color: #fffdf9 !important;
   font: 600 13px/20px "Inter:Semi_Bold", sans-serif !important;
   text-decoration: none !important;
+  transition: background .22s ease, border-color .22s ease, color .22s ease, transform .22s ease !important;
+}
+
+.home-gallery-nav .gallery-call:hover,
+.home-gallery-nav .gallery-call:focus-visible {
+  background: #fff !important;
+  border-color: #f65a1e;
+  color: #20160d !important;
+  transform: translateY(-1px);
+}
+
+.home-gallery-nav .gallery-call:focus-visible {
+  outline: 2px solid #f65a1e;
+  outline-offset: 3px;
+}
+
+.home-gallery-nav .gallery-call span {
+  display: inline-block;
+  transition: transform .22s ease;
+}
+
+.home-gallery-nav .gallery-call:hover span,
+.home-gallery-nav .gallery-call:focus-visible span {
+  transform: translateX(4px);
+}
+
+/* FAQ panel matches the two-column reference treatment while preserving its
+   native details/summary accordion behaviour. */
+.faq-reference-panel > div details {
+  background: #fffaf0 !important;
+  border-radius: 20px !important;
+}
+
+.faq-reference-panel > div details + details {
+  margin-top: 24px !important;
+}
+
+.faq-reference-panel summary {
+  box-sizing: border-box;
+  min-height: 82px;
+  padding: 20px !important;
+  color: #16120f !important;
+  font-size: 16px !important;
+}
+
+.faq-reference-panel summary > span {
+  margin-left: 16px;
+  font-size: 20px !important;
+}
+
+.faq-reference-panel details p {
+  padding: 0 20px 20px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* Shared Home and Gallery footer. */
+.site-footer {
+  box-sizing: border-box;
+  padding: 50px clamp(20px, 7.3vw, 94px) !important;
+  width: 100% !important;
+  color: #f8f5f2;
+  background: linear-gradient(rgba(2, 2, 2, .78), rgba(2, 2, 2, .9)), url('./imports/Home/b3ee254810031e9b3c043e5cbae2fec0848b43ea.png') center/cover;
+}
+
+.site-footer-panel {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: 1.65fr .9fr 1fr;
+  gap: 40px;
+  min-height: 464px;
+  max-width: 1088px;
+  margin: 0 auto;
+  padding: 28px 68px 30px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 18px;
+  background: rgba(5, 4, 4, .54);
+  backdrop-filter: blur(8px);
+}
+
+.site-footer-brand { display: inline-flex; align-items: center; gap: 13px; color: #fff; font: 500 20px/22px "Sora:Regular", sans-serif; text-decoration: none; }
+.site-footer-brand img { width: 55px; height: 55px; object-fit: contain; }
+.site-footer-about p { max-width: 295px; margin: 27px 0 22px; color: #d8d2ce; font: 400 16px/1.62 "Hanken_Grotesk:Regular", Arial, sans-serif; }
+.site-footer-social { display: flex; align-items: center; gap: 19px; }
+.site-footer-social a { display: inline-flex; align-items: center; justify-content: center; min-width: 16px; color: #fff; font: 700 16px/1 Arial, sans-serif; text-decoration: none; transition: color .2s ease, transform .2s ease; }
+.site-footer-social a:hover, .site-footer-social a:focus-visible { color: #f97316; transform: translateY(-2px); }
+.site-footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: 17px; padding-top: 1px; }
+.site-footer-links h3 { margin: 0 0 11px; color: #fff; font: 700 14px/18px "Hanken_Grotesk:Bold", Arial, sans-serif; letter-spacing: 3px; }
+.site-footer-links a { color: #e5dfdb; font: 400 16px/1.4 "Hanken_Grotesk:Regular", Arial, sans-serif; text-decoration: none; }
+.site-footer-links a:hover, .site-footer-links a:focus-visible { color: #f97316; }
+.site-footer-bottom { grid-column: 1 / -1; align-self: end; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #8e8986; font: 700 10px/14px "Inter:Regular", Arial, sans-serif; letter-spacing: 1px; }
+.site-footer-mini-brand { display: inline-flex; align-items: center; gap: 10px; color: #8e8986; font: 700 18px/22px "Sora:Bold", sans-serif; letter-spacing: 0; }
+.site-footer-mini-brand img { width: 36px; height: 36px; object-fit: contain; }
+.gallery-footer .footer-bottom { display: none; }
+
+@media (max-width: 700px) {
+  .faq-reference-panel > div details + details { margin-top: 16px !important; }
+  .faq-reference-panel summary { font-size: 14px !important; }
+  .site-footer { padding: 32px 18px !important; }
+  .site-footer-panel { grid-template-columns: 1fr; gap: 32px; min-height: 0; padding: 30px 26px; }
+  .site-footer-links { gap: 12px; }
+  .site-footer-bottom { align-items: flex-start; flex-direction: column; font-size: 9px; }
 }
 
 @media (max-width: 640px) {

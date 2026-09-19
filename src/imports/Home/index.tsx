@@ -13,6 +13,10 @@ import imgCards2 from "./fc217c221e771b9769b028a1653cd59a883ad2bb.png";
 import imgCards3 from "./e31c109163ea3aea16ce888ce1b3e5169267c16e.png";
 import imgLogoMarkSmall from "./c4451b3f63ecff4a3efbc8b47afad2d9e3866ef9.png";
 import imgImageHappyMomentsLogo from "./f5827fc53beb6a882da4c0b971bc828d60f71ba0.png";
+import imgHomeHero1 from "../../assets/Home-hero/Hero 1.png";
+import imgHomeHero2 from "../../assets/Home-hero/Hero 2.jpg";
+import imgHomeHero3 from "../../assets/Home-hero/Hero 3.png";
+import imgHomeHero4 from "../../assets/Home-hero/Hero 4.png";
 import { useEffect, useRef, useState } from "react";
 type LinkProps = {
   className?: string;
@@ -788,6 +792,50 @@ function HeroSection3() {
   );
 }
 
+function HeroCarousel() {
+  const heroSlides = [imgHomeHero1, imgHomeHero2, imgHomeHero3, imgHomeHero4];
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const sliderTimer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => window.clearInterval(sliderTimer);
+  }, [heroSlides.length]);
+
+  return (
+    <section
+      className="h-[min(800px,62.5vw)] min-h-[420px] relative shrink-0 w-full"
+      data-name="Carasoul"
+      aria-label="Happy Moments featured events"
+    >
+      {heroSlides.map((image, index) => (
+        <img
+          key={image}
+          src={image}
+          alt={`Happy Moments event showcase ${index + 1}`}
+          className={`absolute inset-0 h-full object-cover transition-opacity duration-1000 w-full ${index === activeSlide ? "opacity-100" : "opacity-0"}`}
+          aria-hidden={index !== activeSlide}
+        />
+      ))}
+      <div className="absolute bg-[rgba(0,0,0,0.35)] inset-0 pointer-events-none" />
+      <div className="absolute bottom-[clamp(20px,3vw,38px)] flex gap-[10px] justify-center left-0 right-0 z-[1]">
+        {heroSlides.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            aria-label={`Show slide ${index + 1}`}
+            aria-current={index === activeSlide}
+            className={`border border-white cursor-pointer h-[10px] p-0 rounded-full transition-all w-[10px] ${index === activeSlide ? "bg-white scale-125" : "bg-white/50"}`}
+            onClick={() => setActiveSlide(index)}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Heading() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 1">
@@ -1141,15 +1189,15 @@ function WhyChooseUsSection() {
             <span className="absolute bg-black font-['Libre_Caslon_Text:Bold',serif] font-bold left-1/2 px-[15px] py-[8px] rounded-full text-[12px] text-white top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">WHY CHOOSE US</span>
           </div>
         </div>
-        <div className="gap-[20px] grid grid-cols-1 lg:grid-cols-[.95fr_1.15fr] mt-[clamp(58px,8vw,100px)]">
-          <div className="bg-gradient-to-br flex flex-col from-[#ffc566] items-center justify-center min-h-[250px] px-[32px] rounded-[9px] text-center to-[#ff6d1a]">
-            <span className="font-['Hanken_Grotesk:Regular',sans-serif] text-[#7b3d18] text-[10px]">Complete &nbsp; Planning, &nbsp; Execution, &nbsp; Support</span>
-            <h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold leading-[1.05] mt-[16px] text-[#26170f] text-[clamp(24px,2.8vw,36px)]">Let&apos;s Create Your Next<br />Unforgettable Happy Moments</h3>
-            <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] mt-[13px] text-[#6d371e] text-[12px]">From perfect planning to flawless execution, we&apos;re here to guide and celebrate every moment of your event journey.</p>
-            <a className="bg-[#f45d18] font-['Inter:Semi_Bold',sans-serif] mt-[20px] no-underline px-[17px] py-[10px] rounded-full text-[10px] text-white" href="tel:+919717928676">LOOKING FOR EVENT PLANNER</a>
+        <div className="gap-[12px] grid grid-cols-1 lg:grid-cols-[1fr_.97fr] max-w-[1240px] mx-auto mt-[clamp(58px,8vw,100px)]">
+          <div className="bg-gradient-to-br flex flex-col from-[#ff9f12] items-center justify-center min-h-[486px] px-[clamp(28px,5vw,54px)] rounded-[20px] text-center to-[#ffd983]">
+            <span className="font-['Hanken_Grotesk:Regular',sans-serif] text-[#633a27] text-[13px]">Corporate. &nbsp; Wedding. &nbsp; Exhibitions. &nbsp; Special Occasions</span>
+            <h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold leading-[1.16] mt-[28px] text-[#090604] text-[clamp(30px,3.05vw,40px)]">Let&apos;s Create Your Next<br />Unforgettable Happy Moments</h3>
+            <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.52] max-w-[520px] mt-[25px] text-[#633a27] text-[16px]">Whether it&apos;s a corporate milestone, a dream wedding, or a grand celebration, Happy Moments brings your vision to life with creativity and perfection.</p>
+            <a className="bg-[#fb591b] font-['Inter:Semi_Bold',sans-serif] mt-[24px] no-underline px-[27px] py-[17px] rounded-full text-[13px] text-white transition-transform hover:scale-[1.03]" href="tel:+919717928676">LOOKING FOR EVENT PLANNER</a>
           </div>
-          <div className="flex flex-col justify-end">
-            <span className="bg-[#e7e7e7] ml-auto mb-[13px] px-[13px] py-[5px] rounded-full text-[9px] tracking-[.7px]">FREQUENTLY ASKED QUESTIONS</span>
+          <div className="faq-reference-panel flex flex-col">
+            <span className="bg-[#e7e7e7] mb-[32px] mx-auto px-[20px] py-[7px] rounded-full text-[12px] tracking-[.35px]">FREQUENTLY ASKED QUESTIONS</span>
             <div className="space-y-[10px]">{faqs.map(([question, answer]) => <details className="bg-[#fffaf0] group rounded-[8px]" key={question}><summary className="cursor-pointer flex font-['Hanken_Grotesk:Bold',sans-serif] font-bold items-center justify-between list-none px-[17px] py-[15px] text-[#36302b] text-[12px]">{question}<span className="font-normal group-open:rotate-180 text-[16px] transition-transform">⌄</span></summary><p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] px-[17px] pb-[15px] text-[#625a55] text-[12px]">{answer}</p></details>)}</div>
           </div>
         </div>
@@ -3664,10 +3712,18 @@ function Frame() {
 
 function Footer() {
   return (
-    <div className="content-stretch flex flex-col h-[144px] items-start pb-[48px] pt-[64px] px-[80px] relative shrink-0 w-[1280px]" data-name="Footer">
-      <div aria-hidden className="absolute border-[#f97316] border-solid border-t inset-0 pointer-events-none" />
-      <Frame />
-    </div>
+    <footer className="site-footer" data-name="Footer">
+      <div className="site-footer-panel">
+        <section className="site-footer-about">
+          <a className="site-footer-brand" href="/" aria-label="Happy Moments home"><img src={imgImageHappyMomentsLogo} alt="Happy Moments" /><span>Happy<br />Moments</span></a>
+          <p>Full service event management from Delhi-NCR 10+ years of event industry experience behind 100+ events: corporate, weddings, Exhibitions, Special Occasions across 25+ cities in India.</p>
+          <nav className="site-footer-social" aria-label="Social media"><a href="#contact" aria-label="Instagram">◎</a><a href="#contact" aria-label="Facebook">f</a><a href="#contact" aria-label="Twitter">♥</a><a href="#contact" aria-label="YouTube">▶</a><a href="#contact" aria-label="LinkedIn">in</a></nav>
+        </section>
+        <section className="site-footer-links"><h3>SERVICES</h3><a href="#services">Corporate.</a><a href="#services">Wedding.</a><a href="#services">Exhibitions.</a><a href="#services">Special Occasions</a></section>
+        <section className="site-footer-links"><h3>CONTACT</h3><a href="#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="tel:+919968211112">+91 9968211112</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
+        <div className="site-footer-bottom"><span className="site-footer-mini-brand"><img src={imgImageHappyMomentsLogo} alt="" />Happy Moments</span><span>Managed By D&apos;miraki</span><span>© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</span></div>
+      </div>
+    </footer>
   );
 }
 
@@ -3788,17 +3844,7 @@ function Container55() {
 export default function Home() {
   return (
     <div className="bg-white content-stretch flex flex-col items-start relative size-full" data-name="HOME">
-      <div className="relative shrink-0 w-full overflow-hidden" data-name="Carasoul">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgCarasoul} />
-        <div className="flex flex-row items-center size-full">
-          <div className="content-stretch flex gap-[40px] items-center relative size-full">
-            <HeroSection />
-            <HeroSection1 />
-            <HeroSection2 />
-            <HeroSection3 />
-          </div>
-        </div>
-      </div>
+      <HeroCarousel />
       <Container />
       <Frame24 />
       <WhoWeAreSection />
