@@ -969,10 +969,10 @@ function WhoWeAreSection() {
         </div>
         <div className="grid gap-[clamp(36px,6vw,80px)] grid-cols-1 items-center lg:grid-cols-[minmax(360px,1fr)_minmax(440px,1.05fr)] mt-[clamp(40px,5vw,68px)]">
           <div className="aspect-square grid grid-cols-2 grid-rows-2 max-w-[520px] mx-auto relative w-full">
-            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection3} alt="Corporate event setup" />
-            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection} alt="Wedding decor by Happy Moments" />
-            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection2} alt="Exhibition experience" />
-            <img className="border-[3px] border-white h-full object-cover w-full" src={imgHeroSection1} alt="Live event production" />
+            <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection3} alt="Corporate event setup" />
+            <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection} alt="Wedding decor by Happy Moments" />
+            <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection2} alt="Exhibition experience" />
+            <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection1} alt="Live event production" />
             <div className="absolute bg-[#f97316] flex items-center justify-center left-1/2 p-[8px] rounded-full shadow-lg top-1/2 -translate-x-1/2 -translate-y-1/2 size-[clamp(90px,11vw,136px)]">
               <img className="object-contain size-full" src={imgImageHappyMomentsLogo} alt="Happy Moments" />
             </div>
@@ -1012,9 +1012,9 @@ function WhatWeDoSection() {
         </div>
         <div className="gap-[18px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[42px]">
           {services.map(([title, image, items]) => (
-            <article className="bg-[#fff9ef] min-h-[385px] overflow-hidden rounded-[8px]" key={title as string}>
+            <article className="bg-[#fff9ef] border border-transparent group min-h-[385px] overflow-hidden rounded-[8px] transition-all duration-300 ease-out hover:-translate-y-[7px] hover:border-[#f97316] hover:shadow-[0_14px_30px_rgba(54,39,24,0.18)]" key={title as string}>
               <div className="h-[185px] relative">
-                <img className="absolute h-full object-cover w-full" src={image as string} alt={title as string} />
+                <img className="absolute h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] w-full" src={image as string} alt={title as string} />
                 <span className="absolute bg-[rgba(37,37,37,0.78)] bottom-[0] font-['Hanken_Grotesk:Regular',sans-serif] left-1/2 px-[16px] py-[7px] text-[12px] text-white -translate-x-1/2 whitespace-nowrap">{title as string}</span>
               </div>
               <ul className="font-['Hanken_Grotesk:Regular',sans-serif] list-none m-0 p-[22px] text-[#4d4b48] text-[13px]">
