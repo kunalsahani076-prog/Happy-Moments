@@ -1083,10 +1083,18 @@ function WhatWeDoSection() {
 }
 
 function ExceptionalServicesSection() {
-  // Keep every existing service image in the carousel. The active image is shown
-  // wide and the remaining images stay visible as the narrow preview cards.
-  const serviceImages = [imgCarasoul, imgHeroSection, imgHeroSection1, imgHeroSection2, imgHeroSection3, imgCarasoul];
+  // Keep every existing service image in the carousel. One panel expands at a
+  // time, following the supplied accordion-carousel interaction.
+  const serviceImages = [
+    { label: "Photography", image: imgCarasoul },
+    { label: "DJ & Entertainment", image: imgHeroSection },
+    { label: "Choreographers", image: imgHeroSection1 },
+    { label: "Makeup Artist", image: imgHeroSection2 },
+    { label: "Decor", image: imgHeroSection3 },
+    { label: "Videography", image: imgCarasoul },
+  ];
   const [activeServiceImage, setActiveServiceImage] = useState(0);
+  const [isServiceCarouselPaused, setIsServiceCarouselPaused] = useState(false);
   const steps = [
     ["01", "Consultation", "Discuss the vision, budget, key preferences, and priorities to create a clear foundation for bringing the event to life.", "from-[#d73a28] to-[#bc2e28]"],
     ["02", "Design", "Develop the mood board, theme, and key visuals, supported by a clear, fully itemized quotation for complete cost transparency.", "from-[#245b6c] to-[#4b889b]"],
@@ -1095,17 +1103,14 @@ function ExceptionalServicesSection() {
   ];
 
   useEffect(() => {
+    if (isServiceCarouselPaused) return;
+
     const carouselTimer = window.setInterval(() => {
       setActiveServiceImage((current) => (current + 1) % serviceImages.length);
     }, 2600);
 
     return () => window.clearInterval(carouselTimer);
-  }, [serviceImages.length]);
-
-  const visibleServiceImages = Array.from({ length: serviceImages.length - 1 }, (_, offset) => {
-    const index = (activeServiceImage + offset + 1) % serviceImages.length;
-    return { image: serviceImages[index], index };
-  });
+  }, [isServiceCarouselPaused, serviceImages.length]);
 
   return (
     <section className="bg-white px-[clamp(24px,5vw,80px)] pb-[clamp(78px,10vw,140px)] pt-[clamp(12px,3vw,40px)] relative shrink-0 w-full">
@@ -1114,20 +1119,27 @@ function ExceptionalServicesSection() {
           <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">EXCEPTIONAL SERVICES</span>
           <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.45] max-w-[650px] mt-[15px] text-[#312b27] text-[14px]">As the Best Event Management Company in Delhi-NCR we provide exceptional services that your event needs.</p>
         </div>
-        <div className="flex gap-[12px] h-[clamp(150px,18vw,245px)] items-center justify-center mt-[35px] overflow-hidden">
-          <div className="h-full max-w-[480px] overflow-hidden relative rounded-[24px] w-[40%]">
-            <img key={activeServiceImage} className="h-full object-cover service-feature-image w-full" src={serviceImages[activeServiceImage]} alt="Event photography" />
-            <span key={`label-${activeServiceImage}`} className="absolute bg-[rgba(33,33,33,.75)] font-['Hanken_Grotesk:Regular',sans-serif] left-[10px] px-[9px] py-[4px] rounded-full service-feature-label text-[9px] text-white top-[10px]">Photography</span>
-          </div>
-          {visibleServiceImages.map(({ image, index }) => (
+        <div className="flex gap-[clamp(7px,1.1vw,14px)] h-[clamp(190px,25vw,420px)] items-stretch justify-center mt-[35px] overflow-hidden px-[clamp(0px,1.8vw,24px)] service-accordion-carousel">
+          {serviceImages.map(({ label, image }, index) => (
             <button
               type="button"
-              aria-label={`Show service image ${index + 1}`}
-              className="border-0 bg-transparent cursor-pointer h-[88%] overflow-hidden p-0 rounded-[22px] service-preview-card shrink-0 w-[10%]"
-              key={index}
+              aria-label={`Show ${label}`}
+              className={`border-0 bg-transparent cursor-pointer min-w-0 overflow-hidden p-0 relative rounded-[clamp(14px,1.8vw,22px)] service-accordion-panel ${index === activeServiceImage ? "service-accordion-panel-active" : ""}`}
+              key={`${label}-${index}`}
+              onMouseEnter={() => {
+                setIsServiceCarouselPaused(true);
+                setActiveServiceImage(index);
+              }}
+              onMouseLeave={() => setIsServiceCarouselPaused(false)}
+              onFocus={() => {
+                setIsServiceCarouselPaused(true);
+                setActiveServiceImage(index);
+              }}
+              onBlur={() => setIsServiceCarouselPaused(false)}
               onClick={() => setActiveServiceImage(index)}
             >
-              <img className="h-full object-cover service-preview-image w-full" src={image} alt="Happy Moments service" />
+              <img className="absolute inset-0 object-cover service-accordion-image size-full" src={image} alt={label} />
+              <span className="absolute bg-[rgba(0,0,0,.35)] font-['Hanken_Grotesk:Regular',sans-serif] left-[clamp(9px,1.4vw,18px)] px-[clamp(8px,1.2vw,16px)] py-[clamp(4px,.6vw,7px)] rounded-full service-accordion-label text-[clamp(9px,1.3vw,17px)] text-white top-[clamp(9px,1.4vw,18px)] whitespace-nowrap">{label}</span>
             </button>
           ))}
         </div>
@@ -1165,26 +1177,26 @@ function WhyChooseUsSection() {
 
   return (
     <section className="bg-white px-[clamp(24px,5vw,80px)] pb-[clamp(78px,10vw,140px)] pt-[clamp(8px,2vw,28px)] relative shrink-0 w-full">
-      <div className="max-w-[980px] mx-auto">
+      <div className="max-w-[1100px] mx-auto">
         <div className="flex flex-col items-center text-center">
           <span className="bg-[#e7e7e7] rounded-full px-[16px] py-[6px] text-[10px] tracking-[1px] text-black">WHY CHOOSE US</span>
           <h2 className="font-['Libre_Caslon_Text:Bold',serif] font-bold mt-[18px] text-[clamp(27px,3.3vw,44px)] text-[#24211f] leading-[1.1]">The Happy Moments <span className="text-[#f65a1e]">Difference</span></h2>
           <p className="font-['Hanken_Grotesk:Regular',sans-serif] max-w-[620px] mt-[14px] text-[#625a55] text-[14px]">Discover what truly sets us apart from every other event company you&apos;ll consider.</p>
         </div>
-        <div className="max-w-[680px] mx-auto mt-[45px] relative md:h-[545px]">
-          <div className="absolute aspect-square hidden md:-left-[28px] rounded-full shadow-[0_7px_14px_rgba(0,0,0,.32)] top-[174px] w-[190px] md:block">
+        <div className="max-w-[1050px] mx-auto mt-[45px] relative lg:h-[760px]">
+          <div className="absolute aspect-square hidden lg:left-0 rounded-full shadow-[0_7px_14px_rgba(0,0,0,.32)] top-[264px] w-[250px] lg:block">
             <img className="absolute inset-0 object-cover rounded-full size-full" src={imgCarasoul} alt="Happy Moments event experience" />
             <span className="absolute bg-black font-['Libre_Caslon_Text:Bold',serif] font-bold left-1/2 px-[15px] py-[8px] rounded-full text-[12px] text-white top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">WHY CHOOSE US</span>
           </div>
           {reasons.map(([title, description, image], index) => {
-            const positions = ["md:left-[55px] md:top-0", "md:left-[125px] md:top-[84px]", "md:left-[197px] md:top-[171px]", "md:left-[197px] md:top-[259px]", "md:left-[125px] md:top-[347px]", "md:left-[55px] md:top-[435px]"];
-            const borders = ["border-[#23a79c]", "border-[#e44b7f]", "border-[#b9c521]", "border-[#bcc527]", "border-[#77a6a0]", "border-[#9632a4]"];
-            return <article className={`flex gap-[14px] items-center mb-[22px] md:absolute md:mb-0 ${positions[index]}`} key={title}>
-              <img className={`border-[3px] h-[58px] object-cover rounded-full shrink-0 w-[58px] ${borders[index]}`} src={image} alt="" />
-              <div><h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold text-[#282421] text-[17px] leading-[1.1] whitespace-nowrap">{title}</h3><p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.42] mt-[5px] text-[#79716d] text-[12px] max-w-[440px]">{description}</p></div>
+            const positions = ["lg:left-[80px] lg:top-0", "lg:left-[187px] lg:top-[128px]", "lg:left-[294px] lg:top-[264px]", "lg:left-[294px] lg:top-[394px]", "lg:left-[187px] lg:top-[525px]", "lg:left-[80px] lg:top-[657px]"];
+            const borders = ["border-[#23a79c]", "border-[#e44b7f]", "border-[#b9c521]", "border-[#bcc527]", "border-[#b9c521]", "border-[#9632a4]"];
+            return <article className={`flex gap-[18px] items-center mb-[25px] lg:absolute lg:mb-0 ${positions[index]}`} key={title}>
+              <img className={`border-[4px] h-[92px] object-cover rounded-full shrink-0 w-[92px] ${borders[index]}`} src={image} alt="" />
+              <div><h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold text-[#282421] text-[clamp(18px,1.7vw,23px)] leading-[1.1] whitespace-nowrap">{title}</h3><p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.42] mt-[8px] text-[#79716d] text-[clamp(13px,1.28vw,17px)] max-w-[650px]">{description}</p></div>
             </article>;
           })}
-          <div className="aspect-square mx-auto relative rounded-full shadow-[0_7px_14px_rgba(0,0,0,.32)] w-[170px] md:hidden">
+          <div className="aspect-square mx-auto relative rounded-full shadow-[0_7px_14px_rgba(0,0,0,.32)] w-[170px] lg:hidden">
             <img className="absolute inset-0 object-cover rounded-full size-full" src={imgCarasoul} alt="Happy Moments event experience" />
             <span className="absolute bg-black font-['Libre_Caslon_Text:Bold',serif] font-bold left-1/2 px-[15px] py-[8px] rounded-full text-[12px] text-white top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">WHY CHOOSE US</span>
           </div>
@@ -3295,8 +3307,9 @@ function Paragraph() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col font-['Hanken_Grotesk:Regular',sans-serif] font-normal gap-[22.375px] items-start leading-[0] opacity-90 relative shrink-0 text-[#565656] text-[14px] w-full whitespace-nowrap" data-name="Paragraph">
       <div className="flex flex-col justify-center relative shrink-0">
-        <p className="leading-[22.75px] mb-0">1-2-34/5, Jubilee Hills, Hyderabad,</p>
-        <p className="leading-[22.75px]">Telangana 500033, India</p>
+        <p className="leading-[22.75px] mb-0">First Floor, A-20</p>
+        <p className="leading-[22.75px] mb-0">Global Business Park</p>
+        <p className="leading-[22.75px]">Sector 63, Noida</p>
       </div>
       <div className="flex flex-col justify-center relative shrink-0">
         <p className="leading-[22.75px]">Open: Monday - Saturday (10 AM - 6 PM)</p>

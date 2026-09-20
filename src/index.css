@@ -118,6 +118,54 @@ body {
   transform: scale(1.08);
 }
 
+/* Exceptional Services: expanding accordion carousel */
+.service-accordion-panel {
+  flex: 1 1 60px;
+  transition: flex 600ms cubic-bezier(.65, 0, .35, 1);
+}
+
+.service-accordion-panel-active {
+  flex: 6 1 400px;
+}
+
+.service-accordion-image {
+  transition: transform 800ms ease;
+}
+
+.service-accordion-panel-active .service-accordion-image {
+  transform: scale(1.03);
+}
+
+.service-accordion-panel::after {
+  background: linear-gradient(to top, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, 0) 40%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.service-accordion-label {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 400ms ease 150ms, transform 400ms ease 150ms;
+  z-index: 1;
+}
+
+.service-accordion-panel-active .service-accordion-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .service-accordion-carousel {
+    height: clamp(180px, 58vw, 300px);
+  }
+
+  .service-accordion-panel-active {
+    flex-basis: 260px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .service-feature-image,
   .service-feature-label {
@@ -125,7 +173,10 @@ body {
   }
 
   .service-preview-card,
-  .service-preview-image {
+  .service-preview-image,
+  .service-accordion-panel,
+  .service-accordion-image,
+  .service-accordion-label {
     transition: none;
   }
 }
