@@ -910,7 +910,7 @@ function AnimatedCounter({ target }: { target: number }) {
       }
 
       const startTime = performance.now();
-      const duration = 1600;
+      const duration = 2600;
       const animate = (time: number) => {
         const progress = Math.min((time - startTime) / duration, 1);
         // Smooth ease-out keeps the final value easy to read.
@@ -1015,8 +1015,8 @@ function WhoWeAreSection() {
             India&apos;s Most Trusted Name In <span className="text-[#f65a1e]">Event Industry</span>
           </h2>
         </div>
-        <div className="grid gap-[clamp(36px,6vw,80px)] grid-cols-1 items-center lg:grid-cols-[minmax(360px,1fr)_minmax(440px,1.05fr)] mt-[clamp(40px,5vw,68px)]">
-          <div className="aspect-square grid grid-cols-2 grid-rows-2 max-w-[520px] mx-auto relative w-full">
+        <div className="grid gap-[clamp(36px,6vw,80px)] grid-cols-1 items-start lg:grid-cols-[minmax(400px,1.1fr)_minmax(400px,1fr)] mt-[clamp(40px,5vw,68px)]">
+          <div className="aspect-[0.915] grid grid-cols-2 grid-rows-2 max-w-[560px] mx-auto relative w-full">
             <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection3} alt="Corporate event setup" />
             <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection} alt="Wedding decor by Happy Moments" />
             <img className="border-[3px] border-white cursor-pointer h-full object-cover transition-transform duration-500 ease-out hover:scale-[1.06] w-full" src={imgHeroSection2} alt="Exhibition experience" />
@@ -1097,7 +1097,7 @@ function ExceptionalServicesSection() {
   useEffect(() => {
     const carouselTimer = window.setInterval(() => {
       setActiveServiceImage((current) => (current + 1) % serviceImages.length);
-    }, 1000);
+    }, 2600);
 
     return () => window.clearInterval(carouselTimer);
   }, [serviceImages.length]);
@@ -1116,18 +1116,18 @@ function ExceptionalServicesSection() {
         </div>
         <div className="flex gap-[12px] h-[clamp(150px,18vw,245px)] items-center justify-center mt-[35px] overflow-hidden">
           <div className="h-full max-w-[480px] overflow-hidden relative rounded-[24px] w-[40%]">
-            <img className="h-full object-cover w-full" src={serviceImages[activeServiceImage]} alt="Event photography" />
-            <span className="absolute bg-[rgba(33,33,33,.75)] font-['Hanken_Grotesk:Regular',sans-serif] left-[10px] px-[9px] py-[4px] rounded-full text-[9px] text-white top-[10px]">Photography</span>
+            <img key={activeServiceImage} className="h-full object-cover service-feature-image w-full" src={serviceImages[activeServiceImage]} alt="Event photography" />
+            <span key={`label-${activeServiceImage}`} className="absolute bg-[rgba(33,33,33,.75)] font-['Hanken_Grotesk:Regular',sans-serif] left-[10px] px-[9px] py-[4px] rounded-full service-feature-label text-[9px] text-white top-[10px]">Photography</span>
           </div>
           {visibleServiceImages.map(({ image, index }) => (
             <button
               type="button"
               aria-label={`Show service image ${index + 1}`}
-              className="border-0 bg-transparent cursor-pointer h-[88%] overflow-hidden p-0 rounded-[22px] shrink-0 w-[10%]"
+              className="border-0 bg-transparent cursor-pointer h-[88%] overflow-hidden p-0 rounded-[22px] service-preview-card shrink-0 w-[10%]"
               key={index}
               onClick={() => setActiveServiceImage(index)}
             >
-              <img className="h-full object-cover w-full" src={image} alt="Happy Moments service" />
+              <img className="h-full object-cover service-preview-image w-full" src={image} alt="Happy Moments service" />
             </button>
           ))}
         </div>
@@ -3854,7 +3854,7 @@ export default function Home() {
       <Frame2 />
       <SectionLetsPlanYourNextMoment />
       <Footer />
-      <div className="absolute backdrop-blur-[6px] bg-white left-0 top-0 w-full z-10" data-name="Header - TopAppBar">
+      <div className="fixed backdrop-blur-[6px] bg-white left-0 top-0 w-full z-10" data-name="Header - TopAppBar">
         <div className="content-stretch flex flex-col items-start relative size-full">
           <Container55 />
         </div>

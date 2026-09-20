@@ -1,5 +1,5 @@
 .gallery-page { color: #241a14; background: #fff; font-family: "Inter:Regular", Arial, sans-serif; }
-.gallery-nav { height: clamp(42px, 5vw, 64px); padding: 0 clamp(24px, 6.25vw, 80px); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,.9); backdrop-filter: blur(6px); position: relative; z-index: 3; }
+.gallery-nav { height: clamp(42px, 5vw, 64px); padding: 0 clamp(24px, 6.25vw, 80px); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,.9); backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 30; }
 .gallery-brand, .footer-brand { display: flex; gap: 10px; align-items: center; color: #20160d; font: 700 18px/22px "Sora:Bold", sans-serif; text-decoration: none; }
 .gallery-brand img { width: 41px; height: 41px; object-fit: contain; }
 .gallery-nav nav { display: flex; gap: 32px; }

@@ -83,6 +83,53 @@ body {
   animation-play-state: paused;
 }
 
+@keyframes service-feature-reveal {
+  from { opacity: 0; transform: scale(1.06) translateX(18px); }
+  to { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+@keyframes service-label-reveal {
+  from { opacity: 0; transform: translateY(-7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-feature-image {
+  animation: service-feature-reveal 700ms cubic-bezier(.22, .61, .36, 1) both;
+}
+
+.service-feature-label {
+  animation: service-label-reveal 420ms ease-out 120ms both;
+}
+
+.service-preview-card {
+  transition: transform 420ms ease, opacity 420ms ease;
+}
+
+.service-preview-card:hover {
+  opacity: .9;
+  transform: translateY(-5px);
+}
+
+.service-preview-image {
+  transition: transform 600ms ease;
+}
+
+.service-preview-card:hover .service-preview-image {
+  transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-feature-image,
+  .service-feature-label {
+    animation: none;
+  }
+
+  .service-preview-card,
+  .service-preview-image {
+    transition: none;
+  }
+}
+
 /* Functional enquiry form, matched to the supplied reference. */
 .reference-enquiry-form {
   box-sizing: border-box;
