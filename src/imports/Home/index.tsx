@@ -17,6 +17,12 @@ import imgHomeHero1 from "../../assets/Home-hero/Hero 1.png";
 import imgHomeHero2 from "../../assets/Home-hero/Hero 2.jpg";
 import imgHomeHero3 from "../../assets/Home-hero/Hero 3.png";
 import imgHomeHero4 from "../../assets/Home-hero/Hero 4.png";
+import imgExceptionalChoreography from "../../assets/Exceptional Services/choreography.jpg";
+import imgExceptionalDjEntertainment from "../../assets/Exceptional Services/DJ & Entertainment.jpg";
+import imgExceptionalHairStylish from "../../assets/Exceptional Services/hair stylish.jpg";
+import imgExceptionalMakeupArtist from "../../assets/Exceptional Services/makup artist.jpg";
+import imgExceptionalPhotography from "../../assets/Exceptional Services/Photography.jpg";
+import imgExceptionalVideographer from "../../assets/Exceptional Services/videographer.jpg";
 import { useEffect, useRef, useState } from "react";
 type LinkProps = {
   className?: string;
@@ -866,7 +872,7 @@ function Container1() {
 function Frame25() {
   return (
     <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
-      <div className="bg-gradient-to-r from-[#f97316] relative rounded-[30px] shrink-0 to-[#f95316]" data-name="P-BUTTION">
+      <div className="cta-nav-hover hero-plan-event-hover bg-gradient-to-r from-[#f97316] relative rounded-[30px] shrink-0 to-[#f95316]" data-name="P-BUTTION">
         <div aria-hidden className="absolute border border-[#f97316] border-solid inset-0 pointer-events-none rounded-[30px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[clamp(16px,2.03vw,26px)] py-[clamp(9px,1.17vw,15px)] relative size-full">
@@ -1033,7 +1039,7 @@ function WhoWeAreSection() {
             <div className="grid gap-x-[32px] gap-y-[16px] grid-cols-1 sm:grid-cols-2 mt-[26px]">
               {highlights.map(([title, description]) => <div key={title}><h3 className="font-['Hanken_Grotesk:Bold',sans-serif] font-bold text-[#202632] text-[14px] leading-[1.3]">{title}</h3><p className="leading-[1.4] mt-[3px] text-[12px]">{description}</p></div>)}
             </div>
-            <a href="tel:+919717928676" className="bg-gradient-to-r from-[#f97316] inline-flex mt-[30px] no-underline px-[25px] py-[14px] rounded-full text-[#fffdf9] text-[12px] font-['Inter:Semi_Bold',sans-serif] font-semibold to-[#f95316]">Looking For Event Planner</a>
+            <a href="tel:+919717928676" className="cta-nav-hover bg-gradient-to-r from-[#f97316] inline-flex mt-[30px] no-underline px-[25px] py-[14px] rounded-full text-[#fffdf9] text-[12px] font-['Inter:Semi_Bold',sans-serif] font-semibold to-[#f95316]">Looking For Event Planner</a>
           </div>
         </div>
       </div>
@@ -1086,12 +1092,12 @@ function ExceptionalServicesSection() {
   // Keep every existing service image in the carousel. One panel expands at a
   // time, following the supplied accordion-carousel interaction.
   const serviceImages = [
-    { label: "Photography", image: imgCarasoul },
-    { label: "DJ & Entertainment", image: imgHeroSection },
-    { label: "Choreographers", image: imgHeroSection1 },
-    { label: "Makeup Artist", image: imgHeroSection2 },
-    { label: "Decor", image: imgHeroSection3 },
-    { label: "Videography", image: imgCarasoul },
+    { label: "Choreography", image: imgExceptionalChoreography },
+    { label: "DJ & Entertainment", image: imgExceptionalDjEntertainment },
+    { label: "Hair Stylish", image: imgExceptionalHairStylish },
+    { label: "Makeup Artist", image: imgExceptionalMakeupArtist },
+    { label: "Photography", image: imgExceptionalPhotography },
+    { label: "Videographer", image: imgExceptionalVideographer },
   ];
   const [activeServiceImage, setActiveServiceImage] = useState(0);
   const [isServiceCarouselPaused, setIsServiceCarouselPaused] = useState(false);
@@ -1202,11 +1208,11 @@ function WhyChooseUsSection() {
           </div>
         </div>
         <div className="gap-[12px] grid grid-cols-1 lg:grid-cols-[1fr_.97fr] max-w-[1240px] mx-auto mt-[clamp(58px,8vw,100px)]">
-          <div className="bg-gradient-to-br flex flex-col from-[#ff9f12] items-center justify-center min-h-[486px] px-[clamp(28px,5vw,54px)] rounded-[20px] text-center to-[#ffd983]">
+          <div className="event-planner-cta flex flex-col items-center justify-center min-h-[486px] px-[clamp(28px,5vw,54px)] rounded-[20px] text-center">
             <span className="font-['Hanken_Grotesk:Regular',sans-serif] text-[#633a27] text-[13px]">Corporate. &nbsp; Wedding. &nbsp; Exhibitions. &nbsp; Special Occasions</span>
             <h3 className="font-['Libre_Caslon_Text:Bold',serif] font-bold leading-[1.16] mt-[28px] text-[#090604] text-[clamp(30px,3.05vw,40px)]">Let&apos;s Create Your Next<br />Unforgettable Happy Moments</h3>
             <p className="font-['Hanken_Grotesk:Regular',sans-serif] leading-[1.52] max-w-[520px] mt-[25px] text-[#633a27] text-[16px]">Whether it&apos;s a corporate milestone, a dream wedding, or a grand celebration, Happy Moments brings your vision to life with creativity and perfection.</p>
-            <a className="bg-[#fb591b] font-['Inter:Semi_Bold',sans-serif] mt-[24px] no-underline px-[27px] py-[17px] rounded-full text-[13px] text-white transition-transform hover:scale-[1.03]" href="tel:+919717928676">LOOKING FOR EVENT PLANNER</a>
+            <a className="cta-nav-hover bg-[#fb591b] font-['Inter:Semi_Bold',sans-serif] mt-[24px] no-underline px-[27px] py-[17px] rounded-full text-[13px] text-white" href="tel:+919717928676">LOOKING FOR EVENT PLANNER</a>
           </div>
           <div className="faq-reference-panel flex flex-col">
             <span className="bg-[#e7e7e7] mb-[32px] mx-auto px-[20px] py-[7px] rounded-full text-[12px] tracking-[.35px]">FREQUENTLY ASKED QUESTIONS</span>
@@ -3665,7 +3671,7 @@ function MainEnquiryFormContainer() {
           <label className="sr-only" htmlFor="enquiry-message">Requirements</label>
           <textarea id="enquiry-message" name="message" onChange={(event) => updateField("message", event.target.value)} placeholder="Tell us about your requirements..." required value={formData.message} />
         </div>
-        <button className="reference-send-button" type="submit">Send Message</button>
+        <button className="cta-nav-hover reference-send-button" type="submit">Send Message</button>
       </form>
     </div>
   );
@@ -3674,7 +3680,6 @@ function MainEnquiryFormContainer() {
 function Frame15() {
   return (
     <div className="relative shrink-0 w-full">
-      <div aria-hidden className="absolute border border-[#f97316] border-solid inset-0 pointer-events-none" />
       <div className="flex flex-row items-center size-full">
         <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-between px-[80px] py-[40px] relative size-full max-[700px]:flex-col max-[700px]:gap-[36px] max-[700px]:px-[20px] max-[700px]:py-[28px]">
           <Container35 />

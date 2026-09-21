@@ -83,6 +83,51 @@ body {
   animation-play-state: paused;
 }
 
+/* Event planner CTA: the reference's warm yellow-to-orange gradient, with a
+   slow, subtle movement that keeps the text easy to read. */
+@keyframes event-planner-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.event-planner-cta {
+  background: linear-gradient(115deg, #ffe4a1 0%, #ffb37f 43%, #ff7c3d 70%, #ff9a0f 100%);
+  background-size: 220% 220%;
+  animation: event-planner-gradient 9s ease-in-out infinite;
+}
+
+/* Shared CTA hover treatment, matching the navigation's Call Us button. */
+.cta-nav-hover {
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .22s ease, border-color .22s ease, color .22s ease, transform .22s ease;
+}
+
+.cta-nav-hover:hover,
+.cta-nav-hover:focus-visible {
+  background: #fff !important;
+  border-color: #f65a1e;
+  color: #20160d !important;
+  transform: translateY(-1px);
+}
+
+.cta-nav-hover:focus-visible {
+  outline: 2px solid #f65a1e;
+  outline-offset: 3px;
+}
+
+/* The hero CTA keeps the image visible on hover, as in the supplied reference. */
+.hero-plan-event-hover:hover,
+.hero-plan-event-hover:focus-visible {
+  background: transparent !important;
+  border-color: #f65a1e;
+}
+
+.hero-plan-event-hover:hover p,
+.hero-plan-event-hover:focus-visible p {
+  color: #fffdf9 !important;
+}
+
 @keyframes service-feature-reveal {
   from { opacity: 0; transform: scale(1.06) translateX(18px); }
   to { opacity: 1; transform: scale(1) translateX(0); }
@@ -178,6 +223,10 @@ body {
   .service-accordion-image,
   .service-accordion-label {
     transition: none;
+  }
+
+  .event-planner-cta {
+    animation: none;
   }
 }
 
@@ -277,7 +326,6 @@ body {
   font: 600 16px/22px "Inter:Semi_Bold", Arial, sans-serif;
 }
 
-.reference-send-button:hover { filter: brightness(1.04); }
 .reference-send-button:focus-visible { outline: 3px solid rgba(249, 115, 22, .35); outline-offset: 3px; }
 
 @media (max-width: 700px) {
