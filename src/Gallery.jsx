@@ -20,6 +20,7 @@ import risingRajasthanImage from './assets/Gallery-cards/Rising Rajasthan 2024.p
 import indiaStonemartImage from './assets/Gallery-cards/India Stonemart 2024.png'
 import hdfcTownHallImage from './assets/Gallery-cards/HDFC Town Hall.png'
 import stonaImage from './assets/Gallery-cards/Stona 2025 Bangalore.png'
+import jcbFamilyDayImage from './assets/Gallery-page/JCB Family Day 2024/WhatsApp Image 2026-09-22 at 1.19.11 PM.jpeg'
 import iconFacebook from './icons/Facebook.png'
 import iconInstagram from './icons/Instagram.png'
 import iconLinkedIn from './icons/Linkedlin.png'
@@ -36,9 +37,23 @@ const moments = [
   ['India Stonemart 2024', indiaStonemartImage],
   ['HDFC Town Hall', hdfcTownHallImage],
   ['Stona 2025 Bangalore', stonaImage],
+  ['JCB Family Day 2024', jcbFamilyDayImage],
   ['Aadhar Housing R&R', aadharHousingImage],
   ['V1 Sirsa Cup', v1SirsaCupImage],
 ]
+
+const eventPages = {
+  'AutoExpo 2023': '/gallery/autoexpo-2023',
+  'Deco India 2023': '/gallery/deco-india-2023',
+  'IITF 2024': '/gallery/iitf-2024',
+  'Rising Rajasthan 2024': '/gallery/rising-rajasthan-2024',
+  'India Stonemart 2024': '/gallery/india-stonemart-2024',
+  'Stona 2025 Bangalore': '/gallery/stona-2025-bangalore',
+  'Aadhar Housing R&R': '/gallery/aadhar-housing-r-and-r',
+  'HDFC Town Hall': '/gallery/hdfc-town-hall',
+  'JCB Family Day 2024': '/gallery/jcb-family-day-2024',
+  'V1 Sirsa Cup': '/gallery/v1-sirsa-cup',
+}
 
 function GalleryHeroCarousel() {
   const slides = [galleryHero1, galleryHero2, galleryHero3, galleryHero4]
@@ -94,8 +109,8 @@ export default function GalleryPage() {
           <div className="gallery-grid">
             {moments.map(([title, image], index) => (
               <article className="gallery-card" key={`${title}-${index}`}>
-                {title === 'AutoExpo 2023' ? (
-                  <a className="gallery-card-link" href="/gallery/autoexpo-2023" aria-label="View AutoExpo 2023 gallery">
+                {eventPages[title] ? (
+                  <a className="gallery-card-link" href={eventPages[title]} aria-label={`View ${title} gallery`}>
                     <img src={image} alt={title} />
                     <h3>{title}</h3>
                   </a>
