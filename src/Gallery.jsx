@@ -12,19 +12,27 @@ import galleryHero1 from './assets/Gallery-hero/Hero 1.png'
 import galleryHero2 from './assets/Gallery-hero/Hero 2.png'
 import galleryHero3 from './assets/Gallery-hero/Hero 3.png'
 import galleryHero4 from './assets/Gallery-hero/Hero 4.png'
+import aadharHousingImage from './assets/Gallery-cards/Aadhar Housing R&R.png'
+import v1SirsaCupImage from './assets/Gallery-cards/V1 Sirsa Cup.png'
+import decoIndiaImage from './assets/Gallery-cards/Deco India 2023.png'
+import iitfImage from './assets/Gallery-cards/IITF 2024.png'
+import risingRajasthanImage from './assets/Gallery-cards/Rising Rajasthan 2024.png'
+import indiaStonemartImage from './assets/Gallery-cards/India Stonemart 2024.png'
+import hdfcTownHallImage from './assets/Gallery-cards/HDFC Town Hall.png'
+import stonaImage from './assets/Gallery-cards/Stona 2025 Bangalore.png'
 import { useEffect, useState } from 'react'
 
 const moments = [
   ['AutoExpo 2023', stageImage],
-  ['Deco India 2023', exhibitionImage],
-  ['IITF 2024', corporateImage],
-  ['Rising Rajasthan 2024', concertImage],
-  ['Rising Rajasthan 2024', weddingImage],
-  ['India Stonemart 2024', decorImage],
-  ['HDFC Town Hall', celebrationImage],
-  ['Stona 2025 Bangalore', exhibitionImage],
-  ['Aadhar Housing R&R', stageImage],
-  ['V1 Sirsa Cup', heroImage],
+  ['Deco India 2023', decoIndiaImage],
+  ['IITF 2024', iitfImage],
+  ['Rising Rajasthan 2024', risingRajasthanImage],
+  ['Rising Rajasthan 2024', risingRajasthanImage],
+  ['India Stonemart 2024', indiaStonemartImage],
+  ['HDFC Town Hall', hdfcTownHallImage],
+  ['Stona 2025 Bangalore', stonaImage],
+  ['Aadhar Housing R&R', aadharHousingImage],
+  ['V1 Sirsa Cup', v1SirsaCupImage],
 ]
 
 function GalleryHeroCarousel() {
