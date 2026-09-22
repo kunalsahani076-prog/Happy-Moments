@@ -159,6 +159,7 @@
 .site-footer-about p { max-width: 295px; margin: 27px 0 22px; color: #d8d2ce; font: 400 16px/1.62 "Hanken_Grotesk:Regular", Arial, sans-serif; }
 .site-footer-social { display: flex; align-items: center; gap: 19px; }
 .site-footer-social a { display: inline-flex; align-items: center; justify-content: center; min-width: 16px; color: #fff; font: 700 16px/1 Arial, sans-serif; text-decoration: none; transition: color .2s ease, transform .2s ease; }
+.site-footer-social img { display: block; max-width: 20px; max-height: 20px; object-fit: contain; }
 .site-footer-social a:hover, .site-footer-social a:focus-visible { color: #f97316; transform: translateY(-2px); }
 .site-footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: 17px; padding-top: 1px; }
 .site-footer-links h3 { margin: 0 0 11px; color: #fff; font: 700 14px/18px "Hanken_Grotesk:Bold", Arial, sans-serif; letter-spacing: 3px; }

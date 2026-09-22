@@ -23,6 +23,11 @@ import imgExceptionalHairStylish from "../../assets/Exceptional Services/hair st
 import imgExceptionalMakeupArtist from "../../assets/Exceptional Services/makup artist.jpg";
 import imgExceptionalPhotography from "../../assets/Exceptional Services/Photography.jpg";
 import imgExceptionalVideographer from "../../assets/Exceptional Services/videographer.jpg";
+import iconFacebook from "../../icons/Facebook.png";
+import iconInstagram from "../../icons/Instagram.png";
+import iconLinkedIn from "../../icons/Linkedlin.png";
+import iconTwitter from "../../icons/Twitter.png";
+import iconYouTube from "../../icons/Youtube.png";
 import { useEffect, useRef, useState } from "react";
 type LinkProps = {
   className?: string;
@@ -3735,7 +3740,7 @@ function Footer() {
         <section className="site-footer-about">
           <a className="site-footer-brand" href="/" aria-label="Happy Moments home"><img src={imgImageHappyMomentsLogo} alt="Happy Moments" /><span>Happy<br />Moments</span></a>
           <p>Full service event management from Delhi-NCR 10+ years of event industry experience behind 100+ events: corporate, weddings, Exhibitions, Special Occasions across 25+ cities in India.</p>
-          <nav className="site-footer-social" aria-label="Social media"><a href="#contact" aria-label="Instagram">◎</a><a href="#contact" aria-label="Facebook">f</a><a href="#contact" aria-label="Twitter">♥</a><a href="#contact" aria-label="YouTube">▶</a><a href="#contact" aria-label="LinkedIn">in</a></nav>
+          <nav className="site-footer-social" aria-label="Social media"><a href="#contact" aria-label="Facebook"><img src={iconFacebook} alt="" /></a><a href="#contact" aria-label="Instagram"><img src={iconInstagram} alt="" /></a><a href="#contact" aria-label="LinkedIn"><img src={iconLinkedIn} alt="" /></a><a href="#contact" aria-label="Twitter"><img src={iconTwitter} alt="" /></a><a href="#contact" aria-label="YouTube"><img src={iconYouTube} alt="" /></a></nav>
         </section>
         <section className="site-footer-links"><h3>SERVICES</h3><a href="#services">Corporate.</a><a href="#services">Wedding.</a><a href="#services">Exhibitions.</a><a href="#services">Special Occasions</a></section>
         <section className="site-footer-links"><h3>CONTACT</h3><a href="#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="tel:+919968211112">+91 9968211112</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
