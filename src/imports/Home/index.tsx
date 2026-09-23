@@ -3735,7 +3735,7 @@ function Frame() {
 
 function Footer() {
   return (
-    <footer className="site-footer" data-name="Footer">
+    <footer className="gallery-footer site-footer" data-name="Footer">
       <div className="site-footer-panel">
         <section className="site-footer-about">
           <a className="site-footer-brand" href="/" aria-label="Happy Moments home"><img src={imgImageHappyMomentsLogo} alt="Happy Moments" /><span>Happy<br />Moments</span></a>
@@ -3744,8 +3744,8 @@ function Footer() {
         </section>
         <section className="site-footer-links"><h3>SERVICES</h3><a href="#services">Corporate.</a><a href="#services">Wedding.</a><a href="#services">Exhibitions.</a><a href="#services">Special Occasions</a></section>
         <section className="site-footer-links"><h3>CONTACT</h3><a href="#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="tel:+919968211112">+91 9968211112</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
-        <div className="site-footer-bottom"><span className="site-footer-mini-brand"><img src={imgImageHappyMomentsLogo} alt="" />Happy Moments</span><span>Managed By D&apos;miraki</span><span>© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</span></div>
       </div>
+      <div className="site-footer-bottom"><span className="site-footer-mini-brand"><img src={imgImageHappyMomentsLogo} alt="" />Happy Moments</span><span>Managed By D&apos;miraki</span><span>© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</span></div>
     </footer>
   );
 }

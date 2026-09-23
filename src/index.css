@@ -233,8 +233,8 @@ body {
 /* Functional enquiry form, matched to the supplied reference. */
 .reference-enquiry-form {
   box-sizing: border-box;
-  gap: 44px;
-  padding: 84px 40px 60px;
+  gap: 10px;
+  padding: 34px 40px 38px;
   background: #fff;
 }
 
@@ -300,24 +300,21 @@ body {
 }
 
 .reference-email-field {
-  margin-top: -28px;
+  margin-top: 0;
 }
 
 .reference-email-field > span {
-  display: block;
-  margin: 0 0 11px 49px;
-  color: #a1a1aa;
-  font: 400 16px/20px "Inter:Regular", Arial, sans-serif;
+  display: none;
 }
 
 .reference-message-field {
-  margin-top: 1px;
+  margin-top: 0;
 }
 
 .reference-send-button {
   width: 100%;
   min-height: 62px;
-  margin-top: -28px;
+  margin-top: 6px;
   border: 0;
   border-radius: 999px;
   background: linear-gradient(90deg, #f97316, #f95316);
@@ -329,7 +326,7 @@ body {
 .reference-send-button:focus-visible { outline: 3px solid rgba(249, 115, 22, .35); outline-offset: 3px; }
 
 @media (max-width: 700px) {
-  .reference-enquiry-form { gap: 36px; padding: 58px 20px 42px; }
+  .reference-enquiry-form { gap: 10px; padding: 34px 40px 38px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

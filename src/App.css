@@ -168,6 +168,7 @@
 .site-footer-bottom { grid-column: 1 / -1; align-self: end; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #8e8986; font: 700 10px/14px "Inter:Regular", Arial, sans-serif; letter-spacing: 1px; }
 .site-footer-mini-brand { display: inline-flex; align-items: center; gap: 10px; color: #8e8986; font: 700 18px/22px "Sora:Bold", sans-serif; letter-spacing: 0; }
 .site-footer-mini-brand img { width: 36px; height: 36px; object-fit: contain; }
+.site-footer > .site-footer-bottom { max-width: none; padding-top: 10px; }
 .gallery-footer .footer-bottom { display: none; }
 
 @media (max-width: 700px) {
