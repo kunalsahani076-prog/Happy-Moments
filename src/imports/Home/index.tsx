@@ -3129,138 +3129,27 @@ function Container37() {
   );
 }
 
-function Container39() {
+function ContactIcon({ type }) {
+  const paths = {
+    phone: <><path d="M5 3h3l2 5-2 1.5a12 12 0 0 0 4.5 4.5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z" /></>,
+    email: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></>,
+    web: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></>,
+  };
+
   return (
-    <div className="relative shrink-0 size-[18px]" data-name="Container">
-      <svg className="absolute block inset-0 size-full" fill="none" height="18" preserveAspectRatio="none" viewBox="0 0 18 18" width="18">
-        <g id="Container">
-          <path d={svgPaths.p143e1930} fill="black" id="Icon" />
-        </g>
+    <span className="flex size-[38px] shrink-0 items-center justify-center rounded-full bg-[#fff0e7] text-[#f97316]" aria-hidden="true">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        {paths[type]}
       </svg>
-    </div>
+    </span>
   );
 }
 
-function Container40() {
+function ContactDetail({ type, children }) {
   return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[16px] text-black whitespace-nowrap">
-          <p className="leading-[24px]">9717928676</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HorizontalBorder() {
-  return (
-    <div className="content-stretch flex gap-[8px] items-center max-w-[320px] pb-[9px] relative shrink-0 w-[320px]" data-name="HorizontalBorder">
-      <div aria-hidden className="absolute border-[#565656] border-b border-solid inset-0 pointer-events-none" />
-      <Container39 />
-      <Container40 />
-    </div>
-  );
-}
-
-function Container41() {
-  return (
-    <div className="relative shrink-0 size-[18px]" data-name="Container">
-      <svg className="absolute block inset-0 size-full" fill="none" height="18" preserveAspectRatio="none" viewBox="0 0 18 18" width="18">
-        <g id="Container">
-          <path d={svgPaths.p143e1930} fill="black" id="Icon" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container42() {
-  return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[16px] text-black whitespace-nowrap">
-          <p className="leading-[24px]">9968211112</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HorizontalBorder1() {
-  return (
-    <div className="content-stretch flex gap-[8px] items-center max-w-[320px] pb-[9px] relative shrink-0 w-[320px]" data-name="HorizontalBorder">
-      <div aria-hidden className="absolute border-[#565656] border-b border-solid inset-0 pointer-events-none" />
-      <Container41 />
-      <Container42 />
-    </div>
-  );
-}
-
-function Container43() {
-  return (
-    <div className="h-[16px] relative shrink-0 w-[20px]" data-name="Container">
-      <svg className="absolute block inset-0 size-full" fill="none" height="16" preserveAspectRatio="none" viewBox="0 0 20 16" width="20">
-        <g id="Container">
-          <path d={svgPaths.p13e73800} fill="black" id="Icon" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container44() {
-  return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[16px] text-black whitespace-nowrap">
-          <p className="leading-[24px]">sales@happy-movments.co.in</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HorizontalBorder2() {
-  return (
-    <div className="content-stretch flex gap-[8px] items-center max-w-[320px] pb-[9px] relative shrink-0 w-[320px]" data-name="HorizontalBorder">
-      <div aria-hidden className="absolute border-[#565656] border-b border-solid inset-0 pointer-events-none" />
-      <Container43 />
-      <Container44 />
-    </div>
-  );
-}
-
-function Container45() {
-  return (
-    <div className="h-[16px] relative shrink-0 w-[20px]" data-name="Container">
-      <svg className="absolute block inset-0 size-full" fill="none" height="16" preserveAspectRatio="none" viewBox="0 0 20 16" width="20">
-        <g id="Container">
-          <path d={svgPaths.p13e73800} fill="black" id="Icon" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Container46() {
-  return (
-    <div className="relative shrink-0" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative size-full">
-        <div className="[word-break:break-word] flex flex-col font-['Hanken_Grotesk:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[16px] text-black whitespace-nowrap">
-          <p className="leading-[24px]">www.happy-moments.co.in</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HorizontalBorder3() {
-  return (
-    <div className="content-stretch flex gap-[8px] items-center max-w-[320px] pb-[9px] relative shrink-0 w-[320px]" data-name="HorizontalBorder">
-      <div aria-hidden className="absolute border-[#565656] border-b border-solid inset-0 pointer-events-none" />
-      <Container45 />
-      <Container46 />
+    <div className="flex min-h-[48px] w-full max-w-[320px] items-center gap-[12px]" data-name="Contact detail">
+      <ContactIcon type={type} />
+      <span className="[word-break:break-word] font-['Hanken_Grotesk:SemiBold',sans-serif] text-[16px] font-semibold leading-[24px] text-black">{children}</span>
     </div>
   );
 }
@@ -3268,10 +3157,9 @@ function HorizontalBorder3() {
 function Container38() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start pt-[16px] relative shrink-0 w-full" data-name="Container">
-      <HorizontalBorder />
-      <HorizontalBorder1 />
-      <HorizontalBorder2 />
-      <HorizontalBorder3 />
+      <ContactDetail type="phone">9717928676</ContactDetail>
+      <ContactDetail type="email">sales@happy-moments.co.in</ContactDetail>
+      <ContactDetail type="web">www.happy-moments.co.in</ContactDetail>
     </div>
   );
 }
@@ -3697,7 +3585,7 @@ function Frame15() {
 
 function SectionLetsPlanYourNextMoment() {
   return (
-    <div className="content-stretch flex flex-col items-center pb-[120px] pt-[121px] px-[24px] relative shrink-0 w-full" data-name="Section - Let's plan your next moment">
+    <div id="contact" className="scroll-mt-[80px] content-stretch flex flex-col items-center pb-[120px] pt-[121px] px-[24px] relative shrink-0 w-full" data-name="Section - Let's plan your next moment">
       <div aria-hidden className="absolute border-[rgba(208,197,175,0.3)] border-solid border-t inset-0 pointer-events-none" />
       <div className="w-full max-w-[1120px]">
         <Frame15 />
@@ -3743,7 +3631,7 @@ function Footer() {
           <nav className="site-footer-social" aria-label="Social media"><a href="#contact" aria-label="Facebook"><img src={iconFacebook} alt="" /></a><a href="#contact" aria-label="Instagram"><img src={iconInstagram} alt="" /></a><a href="#contact" aria-label="LinkedIn"><img src={iconLinkedIn} alt="" /></a><a href="#contact" aria-label="Twitter"><img src={iconTwitter} alt="" /></a><a href="#contact" aria-label="YouTube"><img src={iconYouTube} alt="" /></a></nav>
         </section>
         <section className="site-footer-links"><h3>SERVICES</h3><a href="#services">Corporate.</a><a href="#services">Wedding.</a><a href="#services">Exhibitions.</a><a href="#services">Special Occasions</a></section>
-        <section className="site-footer-links"><h3>CONTACT</h3><a href="#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="tel:+919968211112">+91 9968211112</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
+        <section className="site-footer-links"><h3>CONTACT</h3><a href="#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
       </div>
       <div className="site-footer-bottom"><span className="site-footer-mini-brand"><img src={imgImageHappyMomentsLogo} alt="" />Happy Moments</span><span>Managed By D&apos;miraki</span><span>© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</span></div>
     </footer>

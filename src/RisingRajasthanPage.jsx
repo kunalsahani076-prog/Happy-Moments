@@ -24,7 +24,7 @@ function Footer() {
           <nav className="site-footer-social" aria-label="Social media"><a href="/#contact" aria-label="Facebook"><img src={iconFacebook} alt="" /></a><a href="/#contact" aria-label="Instagram"><img src={iconInstagram} alt="" /></a><a href="/#contact" aria-label="LinkedIn"><img src={iconLinkedIn} alt="" /></a><a href="/#contact" aria-label="Twitter"><img src={iconTwitter} alt="" /></a><a href="/#contact" aria-label="YouTube"><img src={iconYouTube} alt="" /></a></nav>
         </section>
         <section className="site-footer-links"><h3>SERVICES</h3><a href="/#services">Corporate.</a><a href="/#services">Wedding.</a><a href="/#services">Exhibitions.</a><a href="/#services">Special Occasions</a></section>
-        <section className="site-footer-links"><h3>CONTACT</h3><a href="/#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="tel:+919968211112">+91 9968211112</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
+        <section className="site-footer-links"><h3>CONTACT</h3><a href="/#contact">Get in Touch</a><a href="tel:+919717928676">+91 9717928676</a><a href="mailto:sales@happy-moments.co.in">sales@happy-moments.co.in</a></section>
         <div className="site-footer-bottom"><span className="site-footer-mini-brand"><img src={logo} alt="" />Happy Moments</span><span>Managed By D&apos;miraki</span><span>© 2026 HAPPY MOMENTS. ALL RIGHTS RESERVED.</span></div>
       </div>
     </footer>
