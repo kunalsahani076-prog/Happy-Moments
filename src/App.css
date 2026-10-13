@@ -517,3 +517,158 @@
     height: 470px !important;
   }
 }
+
+/* Keep the imported desktop composition intact while making tablet and phone
+   layouts fit the actual viewport. */
+@media (max-width: 900px) {
+  #root,
+  #root > *,
+  [data-name="Carasoul"],
+  [data-name="Featured Section"],
+  [data-name="Section - Our Service"],
+  [data-name="Section - Let's plan your next moment"] {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  [data-name="Carasoul"] {
+    height: clamp(500px, 125vw, 760px) !important;
+    min-height: 0 !important;
+    overflow: hidden;
+  }
+
+  [data-name="Carasoul"] > img {
+    object-fit: cover;
+  }
+
+  [data-name="HOME"] > [data-name="Container"] {
+    box-sizing: border-box;
+    left: 0 !important;
+    padding: 28px clamp(20px, 6vw, 48px);
+    top: clamp(84px, 13vw, 120px) !important;
+    width: 100% !important;
+    z-index: 2;
+  }
+
+  [data-name="HOME"] > [data-name="Container"] [data-name="Heading 1"] > div {
+    font-size: clamp(30px, 7.5vw, 58px) !important;
+    letter-spacing: -.5px !important;
+  }
+
+  [data-name="HOME"] > [data-name="Container"] [data-name="Heading 1"] p,
+  [data-name="HOME"] > [data-name="Container"] [data-name="Heading 1"] span {
+    white-space: normal !important;
+  }
+
+  [data-name="HOME"] > [data-name="Container"] > [data-name="Container"] {
+    max-width: 100%;
+    width: 100% !important;
+  }
+
+  [data-name="HOME"] > [data-name="Container"] [data-name="Container"] > div,
+  [data-name="HOME"] > [data-name="Container"] [data-name="Container"] p {
+    font-size: clamp(15px, 3.8vw, 20px) !important;
+  }
+
+  [data-name="HOME"] > [data-name="Frame 24"],
+  [data-name="HOME"] > [data-name="Frame24"] {
+    flex-wrap: wrap;
+  }
+
+  [data-name="Featured Section"] {
+    padding-left: clamp(20px, 6vw, 64px) !important;
+    padding-right: clamp(20px, 6vw, 64px) !important;
+  }
+
+  [data-name="Featured Section"] > div,
+  [data-name="Featured Section"] [data-name="Container"] {
+    max-width: 100% !important;
+    min-width: 0;
+  }
+
+  [data-name="Producing Event For"] > .partner-marquee {
+    margin-left: 0 !important;
+  }
+
+  [data-name="Partner Logo"] {
+    transform: scale(.72);
+    transform-origin: center;
+  }
+
+  [data-name="Section - Let's plan your next moment"] [data-name="Heading 2"] > div,
+  [data-name="Section - Let's plan your next moment"] [data-name="Paragraph"] > div {
+    max-width: 100%;
+    white-space: normal !important;
+  }
+
+  /* Gallery photos keep their proportions and never enlarge their cards. */
+  .gallery-page img,
+  .gallery-detail-card,
+  .gallery-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  [data-name="Carasoul"] {
+    height: clamp(520px, 150vw, 680px) !important;
+  }
+
+  [data-name="HOME"] > [data-name="Frame 24"],
+  [data-name="HOME"] > [data-name="Frame24"] {
+    gap: 10px !important;
+  }
+
+  [data-name="HOME"] > [data-name="Container"] [data-name="P-BUTTION"],
+  [data-name="HOME"] > [data-name="Container"] [data-name="S-BUTTON"] {
+    max-width: 100%;
+  }
+
+  [data-name="Section - Our Service"] {
+    padding: 52px 18px !important;
+  }
+
+  [data-name="Section - Our Service"] > div,
+  [data-name="Section - Our Service"] [data-name="Grid Layout for Service Cards"] {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  [data-name="Partner Logo"] { transform: scale(.58); }
+
+  /* The mobile reasons list is a readable image-and-copy stack. */
+  .bg-white.px-\[clamp\(24px\,5vw\,80px\)\]:has(article img.rounded-full) article {
+    align-items: flex-start !important;
+    gap: 14px !important;
+    margin-bottom: 22px !important;
+    min-width: 0;
+  }
+
+  .bg-white.px-\[clamp\(24px\,5vw\,80px\)\]:has(article img.rounded-full) article img {
+    height: clamp(72px, 22vw, 92px) !important;
+    width: clamp(72px, 22vw, 92px) !important;
+  }
+
+  .bg-white.px-\[clamp\(24px\,5vw\,80px\)\]:has(article img.rounded-full) article > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bg-white.px-\[clamp\(24px\,5vw\,80px\)\]:has(article img.rounded-full) article h3 {
+    font-size: clamp(16px, 4.5vw, 21px) !important;
+    white-space: normal !important;
+  }
+
+  .home-partners-section > [data-name="Producing Event For"] {
+    height: 100px !important;
+  }
+
+  .gallery-hero { height: 66vw; min-height: 300px; }
+  .gallery-hero-copy { left: 20px; right: 20px; }
+  .gallery-hero-copy h1 { font-size: clamp(36px, 10vw, 54px); }
+  .gallery-detail-grid { grid-template-columns: 1fr; }
+  .gallery-detail-card img { height: auto; aspect-ratio: 4 / 3; }
+}
