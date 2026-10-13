@@ -1,4 +1,5 @@
 import './Gallery.css'
+import SiteNavigation from './SiteNavigation'
 import logo from './imports/Home/f5827fc53beb6a882da4c0b971bc828d60f71ba0.png'
 import decoIndiaImage1 from './assets/Deco India 2023/WhatsApp Image 2026-09-22 at 11.30.07 AM.jpeg'
 import decoIndiaImage2 from './assets/Deco India 2023/0e14d607-d573-4893-a126-f8d00d2ba2d8.jpg'
@@ -30,11 +31,7 @@ function Footer() {
 export default function DecoIndiaPage() {
   return (
     <div className="gallery-page">
-      <header className="gallery-nav">
-        <a className="gallery-brand" href="/" aria-label="Happy Moments home"><img src={logo} alt="Happy Moments" /><span>Happy<br />Moments</span></a>
-        <nav aria-label="Main navigation"><a href="/">Home</a><a href="/#services">Services</a><a className="active" href="/gallery">Gallery</a><a href="/#contact">Contact</a></nav>
-        <a className="gallery-call" href="tel:+919717928676">Call Us <span>→</span></a>
-      </header>
+      <SiteNavigation />
 
       <main className="gallery-detail">
         <a className="gallery-back-link" href="/gallery">← Back to Gallery</a>

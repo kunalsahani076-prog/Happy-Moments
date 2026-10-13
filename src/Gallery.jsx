@@ -1,4 +1,5 @@
 import './Gallery.css'
+import SiteNavigation from './SiteNavigation'
 import logo from './imports/Home/f5827fc53beb6a882da4c0b971bc828d60f71ba0.png'
 import heroImage from './imports/Home/5e2e9bb69a2352fdbca70be9b1afa76667c654be.png'
 import stageImage from './imports/Home/3fbbadffdb59ad2cf7c3ff262f90ef8500776879.png'
@@ -85,19 +86,7 @@ function GalleryHeroCarousel() {
 export default function GalleryPage() {
   return (
     <div className="gallery-page">
-      <header className="gallery-nav">
-        <a className="gallery-brand" href="/" aria-label="Happy Moments home">
-          <img src={logo} alt="Happy Moments" />
-          <span>Happy<br />Moments</span>
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/#services">Services</a>
-          <a className="active" href="/gallery">Gallery</a>
-          <a href="/#contact">Contact</a>
-        </nav>
-        <a className="gallery-call" href="tel:+919717928676">Call Us <span>→</span></a>
-      </header>
+      <SiteNavigation />
 
       <main>
         <GalleryHeroCarousel />

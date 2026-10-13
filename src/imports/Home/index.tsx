@@ -3094,7 +3094,7 @@ function PartnerLogoSet() {
 
 function Frame2() {
   return (
-    <div className="content-stretch flex flex-col gap-[35px] items-center overflow-hidden py-[120px] relative shrink-0 w-full">
+    <div className="home-partners-section content-stretch flex flex-col gap-[35px] items-center overflow-hidden py-[120px] relative shrink-0 w-full">
       <Heading18 />
       <div className="h-[231px] relative shrink-0 w-full" data-name="Producing Event For">
         <div className="partner-marquee flex h-full w-max">
@@ -3735,18 +3735,24 @@ function ButtonCssTransform() {
 }
 
 function Container55() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="gallery-nav home-gallery-nav" data-name="Container">
       <a className="gallery-brand" href="/" aria-label="Happy Moments home">
         <img src={imgImageHappyMomentsLogo} alt="Happy Moments" />
         <span>Happy<br />Moments</span>
       </a>
-      <nav aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="#services">Services</a>
-        <a href="/gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+      <nav id="home-mobile-menu" className={menuOpen ? "home-mobile-menu is-open" : "home-mobile-menu"} aria-label="Main navigation">
+        <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
+        <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+        <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        <a className="gallery-call" href="tel:+919717928676">Call Us</a>
       </nav>
+      <button type="button" className="home-menu-toggle" aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={menuOpen} aria-controls="home-mobile-menu" onClick={() => setMenuOpen((open) => !open)}>
+        <span /><span /><span />
+      </button>
       <a className="gallery-call" href="tel:+919717928676">Call Us <span>→</span></a>
     </div>
   );
