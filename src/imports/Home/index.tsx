@@ -877,20 +877,20 @@ function Container1() {
 function Frame25() {
   return (
     <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
-      <div className="cta-nav-hover hero-plan-event-hover bg-gradient-to-r from-[#f97316] relative rounded-[30px] shrink-0 to-[#f95316]" data-name="P-BUTTION">
+      <a href="#contact" className="cta-nav-hover hero-plan-event-hover bg-gradient-to-r from-[#f97316] inline-flex no-underline relative rounded-[30px] shrink-0 to-[#f95316]" data-name="P-BUTTION">
         <div aria-hidden className="absolute border border-[#f97316] border-solid inset-0 pointer-events-none rounded-[30px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center px-[clamp(16px,2.03vw,26px)] py-[clamp(9px,1.17vw,15px)] relative size-full">
             <p className="[word-break:break-word] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[1.55] not-italic relative shrink-0 text-[#fffdf9] text-[clamp(9px,1.1vw,14px)] whitespace-nowrap">PLAN YOUR EVENT</p>
           </div>
         </div>
-      </div>
-      <div className="bg-[rgba(255,255,255,0.2)] relative rounded-[30px] shrink-0" data-name="S-BUTTON">
+      </a>
+      <a href="/gallery" className="bg-[rgba(255,255,255,0.2)] inline-flex no-underline relative rounded-[30px] shrink-0" data-name="S-BUTTON">
         <div aria-hidden className="absolute border border-[#f2650f] border-solid inset-0 pointer-events-none rounded-[30px]" />
         <div className="content-stretch flex flex-col items-start px-[clamp(16px,2.03vw,26px)] py-[clamp(9px,1.17vw,15px)] relative size-full">
           <p className="[word-break:break-word] font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[1.55] not-italic relative shrink-0 text-[#fffdf9] text-[clamp(9px,1.1vw,14px)] whitespace-nowrap">SEE WHAT WE DO</p>
         </div>
-      </div>
+      </a>
     </div>
   );
 }
