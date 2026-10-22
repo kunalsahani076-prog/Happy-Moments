@@ -4,7 +4,7 @@ const galleryMetadata = {
   title: 'Event Gallery | Happy Moments Delhi NCR',
   description: 'Explore the Happy Moments event gallery featuring wedding decorations, corporate events, exhibitions and special celebrations. Discover our event setups and get inspired for your next occasion.',
   canonical: 'https://happy-moments.co.in/gallery/',
-  image: 'https://happy-moments.co.in/images/happy-moments-gallery-og.png',
+  image: 'https://happy-moments.co.in/images/happy-moments-social.jpg',
   imageAlt: 'Happy Moments event gallery',
   socialDescription: 'Explore wedding decorations, corporate events, exhibitions and special celebrations in the Happy Moments event gallery.',
   twitterDescription: 'Explore wedding decorations, corporate events, exhibitions and special celebrations in the Happy Moments gallery.',
